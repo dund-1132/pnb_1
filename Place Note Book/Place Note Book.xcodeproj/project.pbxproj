@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		F404E7831A82F64500C79F55 /* ValidateTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7821A82F64500C79F55 /* ValidateTextField.m */; };
+		F404E7861A83427800C79F55 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7851A83427800C79F55 /* HomeViewController.m */; };
+		F404E78B1A834BE100C79F55 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F404E78A1A834BE100C79F55 /* PlaceCell.xib */; };
+		F404E7901A835CE600C79F55 /* CustomSearchBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E78F1A835CE600C79F55 /* CustomSearchBarCell.m */; };
+		F404E7931A835D3800C79F55 /* CustomPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7921A835D3800C79F55 /* CustomPlaceCell.m */; };
+		F404E7961A83605F00C79F55 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7951A83605F00C79F55 /* ScheduleViewController.m */; };
+		F404E7991A83607800C79F55 /* PlaceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7981A83607800C79F55 /* PlaceListViewController.m */; };
+		F404E79C1A83609900C79F55 /* AdvanceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */; };
+		F404E79F1A8360AC00C79F55 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E79E1A8360AC00C79F55 /* OptionViewController.m */; };
+		F404E7A21A83672800C79F55 /* PlaceTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7A11A83672800C79F55 /* PlaceTabBarViewController.m */; };
 		F41B243E1A82106A00068E92 /* CustomInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F41B243D1A82106A00068E92 /* CustomInputAccessoryView.m */; };
 		F41B24401A82107600068E92 /* CustomInputAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41B243F1A82107600068E92 /* CustomInputAccessoryView.xib */; };
 		F476DEEC1A7F752900B9501D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F476DEEB1A7F752900B9501D /* SignUpViewController.m */; };
@@ -36,6 +45,23 @@
 /* Begin PBXFileReference section */
 		F404E7811A82F64500C79F55 /* ValidateTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidateTextField.h; sourceTree = "<group>"; };
 		F404E7821A82F64500C79F55 /* ValidateTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidateTextField.m; sourceTree = "<group>"; };
+		F404E7841A83427800C79F55 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		F404E7851A83427800C79F55 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		F404E78A1A834BE100C79F55 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
+		F404E78E1A835CE600C79F55 /* CustomSearchBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchBarCell.h; sourceTree = "<group>"; };
+		F404E78F1A835CE600C79F55 /* CustomSearchBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchBarCell.m; sourceTree = "<group>"; };
+		F404E7911A835D3800C79F55 /* CustomPlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlaceCell.h; sourceTree = "<group>"; };
+		F404E7921A835D3800C79F55 /* CustomPlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlaceCell.m; sourceTree = "<group>"; };
+		F404E7941A83605F00C79F55 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		F404E7951A83605F00C79F55 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		F404E7971A83607800C79F55 /* PlaceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceListViewController.h; sourceTree = "<group>"; };
+		F404E7981A83607800C79F55 /* PlaceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceListViewController.m; sourceTree = "<group>"; };
+		F404E79A1A83609900C79F55 /* AdvanceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceSearchViewController.h; sourceTree = "<group>"; };
+		F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceSearchViewController.m; sourceTree = "<group>"; };
+		F404E79D1A8360AC00C79F55 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
+		F404E79E1A8360AC00C79F55 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
+		F404E7A01A83672800C79F55 /* PlaceTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceTabBarViewController.h; sourceTree = "<group>"; };
+		F404E7A11A83672800C79F55 /* PlaceTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceTabBarViewController.m; sourceTree = "<group>"; };
 		F41B243C1A82106A00068E92 /* CustomInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInputAccessoryView.h; sourceTree = "<group>"; };
 		F41B243D1A82106A00068E92 /* CustomInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInputAccessoryView.m; sourceTree = "<group>"; };
 		F41B243F1A82107600068E92 /* CustomInputAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInputAccessoryView.xib; sourceTree = "<group>"; };
@@ -87,6 +113,11 @@
 				F41B243F1A82107600068E92 /* CustomInputAccessoryView.xib */,
 				F404E7811A82F64500C79F55 /* ValidateTextField.h */,
 				F404E7821A82F64500C79F55 /* ValidateTextField.m */,
+				F404E78E1A835CE600C79F55 /* CustomSearchBarCell.h */,
+				F404E78F1A835CE600C79F55 /* CustomSearchBarCell.m */,
+				F404E7911A835D3800C79F55 /* CustomPlaceCell.h */,
+				F404E7921A835D3800C79F55 /* CustomPlaceCell.m */,
+				F404E78A1A834BE100C79F55 /* PlaceCell.xib */,
 			);
 			name = nib;
 			sourceTree = "<group>";
@@ -107,6 +138,18 @@
 				F476DEEE1A7F753500B9501D /* LoginViewController.m */,
 				F476DEF01A7F754200B9501D /* FacebookViewController.h */,
 				F476DEF11A7F754200B9501D /* FacebookViewController.m */,
+				F404E7A01A83672800C79F55 /* PlaceTabBarViewController.h */,
+				F404E7A11A83672800C79F55 /* PlaceTabBarViewController.m */,
+				F404E7941A83605F00C79F55 /* ScheduleViewController.h */,
+				F404E7951A83605F00C79F55 /* ScheduleViewController.m */,
+				F404E7971A83607800C79F55 /* PlaceListViewController.h */,
+				F404E7981A83607800C79F55 /* PlaceListViewController.m */,
+				F404E7841A83427800C79F55 /* HomeViewController.h */,
+				F404E7851A83427800C79F55 /* HomeViewController.m */,
+				F404E79A1A83609900C79F55 /* AdvanceSearchViewController.h */,
+				F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */,
+				F404E79D1A8360AC00C79F55 /* OptionViewController.h */,
+				F404E79E1A8360AC00C79F55 /* OptionViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -257,6 +300,7 @@
 				F4B134161A7F623500132D3A /* Main.storyboard in Resources */,
 				F4B1341B1A7F623500132D3A /* LaunchScreen.xib in Resources */,
 				F4B134181A7F623500132D3A /* Images.xcassets in Resources */,
+				F404E78B1A834BE100C79F55 /* PlaceCell.xib in Resources */,
 				F41B24401A82107600068E92 /* CustomInputAccessoryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +322,19 @@
 				F41B243E1A82106A00068E92 /* CustomInputAccessoryView.m in Sources */,
 				F4B1340D1A7F623500132D3A /* AppDelegate.m in Sources */,
 				F476DEEC1A7F752900B9501D /* SignUpViewController.m in Sources */,
+				F404E7861A83427800C79F55 /* HomeViewController.m in Sources */,
 				F476DEF21A7F754200B9501D /* FacebookViewController.m in Sources */,
 				F476DEEF1A7F753500B9501D /* LoginViewController.m in Sources */,
+				F404E7961A83605F00C79F55 /* ScheduleViewController.m in Sources */,
+				F404E79C1A83609900C79F55 /* AdvanceSearchViewController.m in Sources */,
 				F4B134101A7F623500132D3A /* Place_Note_Book.xcdatamodeld in Sources */,
+				F404E79F1A8360AC00C79F55 /* OptionViewController.m in Sources */,
 				F4B134131A7F623500132D3A /* IntroductionController.m in Sources */,
+				F404E7931A835D3800C79F55 /* CustomPlaceCell.m in Sources */,
 				F4B1340A1A7F623500132D3A /* main.m in Sources */,
+				F404E7A21A83672800C79F55 /* PlaceTabBarViewController.m in Sources */,
+				F404E7901A835CE600C79F55 /* CustomSearchBarCell.m in Sources */,
+				F404E7991A83607800C79F55 /* PlaceListViewController.m in Sources */,
 				F404E7831A82F64500C79F55 /* ValidateTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

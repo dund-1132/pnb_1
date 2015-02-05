@@ -9,10 +9,11 @@
 #import "LoginViewController.h"
 #import "CustomInputAccessoryView.h"
 #import "ValidateTextField.h"
-
-NSString *const kUserNameValidateExpression = @"^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$";
-NSString *const kEmailValidateExpression = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
-NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
+#import "ScheduleViewController.h"
+#import "PlaceListViewController.h"
+#import "HomeViewController.h"
+#import "AdvanceSearchViewController.h"
+#import "OptionViewController.h"
 
 @interface LoginViewController () <CustomInputAccessoryViewDelegate>
 
@@ -20,6 +21,10 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
 @property (weak, nonatomic) IBOutlet ValidateTextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
+@property (nonatomic, strong) NSString *notifyString;
+@property (weak, nonatomic) IBOutlet UILabel *notifyLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) UITabBarController *placeTabBarController;
 
 @end
 
@@ -28,10 +33,40 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addObserverKeyboard];
+    [self setValidateExpression];
+    [self createPlaceTabbarController];
+}
+
+- (void)createPlaceTabbarController {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                         bundle:[NSBundle mainBundle]];
+    self.placeTabBarController = [[UITabBarController alloc] init];
+    ScheduleViewController *scheduleViewController = [storyboard instantiateViewControllerWithIdentifier:@"ScheduleViewController"];
+    [scheduleViewController setTitle:@"Schedule"];
+    UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
+    PlaceListViewController *placeListViewController = [storyboard instantiateViewControllerWithIdentifier:@"PlaceListViewController"];
+    [placeListViewController setTitle:@"Place List"];
+    UINavigationController *placeListNavigationController = [[UINavigationController alloc] initWithRootViewController:placeListViewController];
+    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    [homeViewController setTitle:@"Home"];
+    UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    AdvanceSearchViewController *advanceViewController = [storyboard instantiateViewControllerWithIdentifier:@"AdvanceSearchViewController"];
+    [advanceViewController setTitle:@"Advance Search"];
+    UINavigationController *advanceSearchNavigationController = [[UINavigationController alloc] initWithRootViewController:advanceViewController];
+    OptionViewController *optionViewController = [storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+    [optionViewController setTitle:@"Option"];
+    UINavigationController *optionNavigationController = [[UINavigationController alloc] initWithRootViewController:optionViewController];
+    [self.placeTabBarController setViewControllers:@[scheduleNavigationController, placeListNavigationController, homeNavigationController, advanceSearchNavigationController, optionNavigationController]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)setValidateExpression {
+    [self.userNameTextField setRegularExpression:ValidateUserName];
+    [self.userNameTextField setRegularExpression:ValidatePassword];
 }
 
 - (UIView *)inputAccessoryView {
@@ -57,9 +92,7 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
 - (void)clearTextField {
     [self.userNameTextField setText:nil];
     [self.passwordTextField setText:nil];
-    [self.userNameTextField becomeFirstResponder];
     [self.view endEditing:YES];
-    [self.loginButton setUserInteractionEnabled:NO];
 }
 
 #pragma mark - handle show/hide keyboard
@@ -71,10 +104,6 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onKeyboardHide:)
                                                  name:UIKeyboardWillHideNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(validateLoginForm:)
-                                                 name:@"EnableButton"
                                                object:nil];
 }
 
@@ -102,27 +131,44 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
     [self.loginScrollView setContentSize:size];
 }
 
-- (void)validateLoginForm:(NSNotification *)notification {
-    if ([self.userNameTextField isValidate] && [self.passwordTextField isValidate]) {
-        [self.loginButton setUserInteractionEnabled:YES];
-    } else {
-        [self.loginButton setUserInteractionEnabled:NO];
+- (BOOL)isValidateLoginForm {
+    if (![self.userNameTextField isValidate]) {
+        self.notifyString = @"Invalid user name";
+        return NO;
     }
+    if (![self.passwordTextField isValidate]) {
+        self.notifyString = @"Invalidate password";
+        return NO;
+    }
+    self.notifyString = @"Login";
+    
+    return YES;
 }
 
 - (IBAction)touchUpInsideLogin:(id)sender {
-    
+    NSLog(@"Touch Up inside sign up button");
+    BOOL isValidate = [self isValidateLoginForm];
+    if (isValidate) {
+        [self.activityIndicator startAnimating];
+        [self.notifyLabel setTextColor:[UIColor blackColor]];
+    } else {
+        [self.activityIndicator stopAnimating];
+    }
+    [self.notifyLabel setText:self.notifyString];
+//    if (isValidate) {
+    [self.navigationController presentViewController:self.placeTabBarController animated:YES completion:nil];
+//    }
 }
 
 #pragma mark - customAccessoryView Delegate
 - (void)inputAccessoryViewPreviousButtonDidClick {
-    if ([self.passwordTextField resignFirstResponder]) {
+    if ([self.passwordTextField isFirstResponder]) {
         [self.userNameTextField becomeFirstResponder];
     }
 }
 
 - (void)inputAccessoryViewNextButtonDidClick {
-    if ([self.userNameTextField resignFirstResponder]) {
+    if ([self.userNameTextField isFirstResponder]) {
         [self.passwordTextField becomeFirstResponder];
     }
 }
@@ -132,6 +178,7 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
 }
 
 - (IBAction)dismissLoginViewController:(id)sender {
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

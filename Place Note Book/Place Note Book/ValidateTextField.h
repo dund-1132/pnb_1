@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum ValidateType {
+    ValidateUserName,
+    ValidateEmail,
+    ValidatePassword
+} ValidateState;
+
 @interface ValidateTextField : UITextField <UITextFieldDelegate>
 
-- (void)setRegularExpression:(NSString *)expression;
+- (void)setRegularExpression:(ValidateState)validateType;
 
 - (BOOL)isValidate;
 

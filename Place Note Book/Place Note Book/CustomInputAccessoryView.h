@@ -15,6 +15,7 @@
 @property (nonatomic, assign) id<CustomInputAccessoryViewDelegate> delegate;
 
 + (CustomInputAccessoryView *)instanceFromNibFile;
+
 - (IBAction)clickPreviousButton:(id)sender;
 
 - (IBAction)clickNextButton:(id)sender;
@@ -25,6 +26,7 @@
 
 @protocol CustomInputAccessoryViewDelegate <NSObject>
 
+@optional
 - (void)inputAccessoryViewPreviousButtonDidClick;
 - (void)inputAccessoryViewNextButtonDidClick;
 - (void)inputAccessoryViewDoneButtonDidClick;

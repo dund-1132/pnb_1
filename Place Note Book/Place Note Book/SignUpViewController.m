@@ -10,10 +10,6 @@
 #import "CustomInputAccessoryView.h"
 #import "ValidateTextField.h"
 
-NSString *const kUserNameValidateExpression = @"^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$";
-NSString *const kEmailValidateExpression = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
-NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
-
 @interface SignUpViewController () <UITextFieldDelegate, CustomInputAccessoryViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -23,6 +19,9 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
 @property (weak, nonatomic) IBOutlet ValidateTextField *confirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *signUpScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *notifyLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatior;
+@property (nonatomic, strong) NSString *notifyString;
 
 @end
 
@@ -51,10 +50,10 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
 
 #pragma mark - set validate expression
 - (void)setValidateExpression {
-    [self.userNameTextField setRegularExpression:kUserNameValidateExpression];
-    [self.emailTextField setRegularExpression:kEmailValidateExpression];
-    [self.passwordTextField setRegularExpression:kPasswordValidateExpression];
-    [self.confirmPasswordTextField setRegularExpression:kPasswordValidateExpression];
+    [self.userNameTextField setRegularExpression:ValidateUserName];
+    [self.emailTextField setRegularExpression:ValidateEmail];
+    [self.passwordTextField setRegularExpression:ValidatePassword];
+    [self.confirmPasswordTextField setRegularExpression:ValidatePassword];
 }
 
 #pragma mark - handle show/hide keyboard
@@ -66,10 +65,6 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onKeyboardHide:)
                                                  name:UIKeyboardWillHideNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(validateSignUpForm:)
-                                                 name:@"EnableButton"
                                                object:nil];
 }
 
@@ -107,40 +102,59 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
     return NO;
 }
 
-- (void)validateSignUpForm:(NSNotification *)notification {
-    if ([self.userNameTextField isValidate]
-        && [self.emailTextField isValidate]
-        && [self.passwordTextField isValidate]
-        && [self.confirmPasswordTextField isValidate]
-        && [[self.passwordTextField text] isEqualToString:[self.confirmPasswordTextField text]]) {
-        
-        [self.signUpButton setUserInteractionEnabled:YES];
-    } else {
-        [self.signUpButton setUserInteractionEnabled:NO];
+- (BOOL)isValidateSignUpForm {
+    if (![self.userNameTextField isValidate]) {
+        self.notifyString = @"Invalid user name";
+        return NO;
     }
+    if (![self.emailTextField isValidate]) {
+        self.notifyString = @"Invalidate email";
+        return NO;
+    }
+    if (![self.passwordTextField isValidate]) {
+        self.notifyString = @"Invalidate password";
+        return NO;
+    }
+    if (![self.confirmPasswordTextField isValidate]) {
+        self.notifyString = @"Invalidate confirm password";
+        return NO;
+    }
+    if (![[self.passwordTextField text] isEqualToString:[self.confirmPasswordTextField text]]) {
+        self.notifyString = @"Verify password and confirm password";
+        return NO;
+    }
+    self.notifyString = @"Creating account";
+    
+    return YES;
 }
 
 - (IBAction)touchUpInsideSignUp:(UIButton *)sender {
-    NSLog(@"Touch Up inside sign up button");
+    if ([self isValidateSignUpForm]) {
+        [self.activityIndicatior startAnimating];
+        [self.notifyLabel setTextColor:[UIColor blackColor]];
+    } else {
+        [self.activityIndicatior stopAnimating];
+    }
+    [self.notifyLabel setText:self.notifyString];
 }
 
 #pragma mark - customAccessoryView Delegate
 - (void)inputAccessoryViewNextButtonDidClick {
-    if ([self.userNameTextField resignFirstResponder]) {
+    if ([self.userNameTextField isFirstResponder]) {
         [self.emailTextField becomeFirstResponder];
-    } else if ([self.emailTextField resignFirstResponder]) {
+    } else if ([self.emailTextField isFirstResponder]) {
         [self.passwordTextField becomeFirstResponder];
-    } else if ([self.passwordTextField resignFirstResponder]) {
+    } else if ([self.passwordTextField isFirstResponder]) {
         [self.confirmPasswordTextField becomeFirstResponder];
     }
 }
 
 - (void)inputAccessoryViewPreviousButtonDidClick {
-    if ([self.emailTextField resignFirstResponder]) {
+    if ([self.emailTextField isFirstResponder]) {
         [self.userNameTextField becomeFirstResponder];
-    } else if ([self.passwordTextField resignFirstResponder]) {
+    } else if ([self.passwordTextField isFirstResponder]) {
         [self.emailTextField becomeFirstResponder];
-    } else if ([self.confirmPasswordTextField resignFirstResponder]) {
+    } else if ([self.confirmPasswordTextField isFirstResponder]) {
         [self.passwordTextField becomeFirstResponder];
     }
 }
@@ -150,7 +164,11 @@ NSString *const kPasswordValidateExpression = @"^[a-zA-Z0-9]{5,11}$";
 }
 
 - (IBAction)dismissSignUpViewController:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [UIView animateWithDuration:0.2f animations:^{
+        [self.view endEditing:YES];
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 - (void)dealloc {

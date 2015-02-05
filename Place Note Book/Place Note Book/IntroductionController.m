@@ -7,7 +7,7 @@
 //
 
 #import "IntroductionController.h"
-
+#import "PlaceListViewController.h"
 @interface IntroductionController ()
 
 @end
