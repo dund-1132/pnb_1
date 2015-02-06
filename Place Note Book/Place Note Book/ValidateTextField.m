@@ -70,7 +70,7 @@
 
 - (void)textFieldTextDidChange:(NSNotification *)notification {
     if ([self isFirstResponder]) {
-        if ([@"" isEqualToString:self.expression]) {
+        if ([@"" isEqualToString:self.expression] || !self.expression) {
             return;
         }
         if ([self isValidate]) {
@@ -105,6 +105,7 @@
 }
 
 - (BOOL)isValidate {
+    NSLog(@"%@", self.expression);
     return [self validateTextField:self.text
                  regularExpression:self.expression];
 }

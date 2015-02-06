@@ -10,4 +10,10 @@
 
 @interface CustomSearchBarCell : UITableViewCell
 
++ (NSString *)cellIdentifier;
+
++ (UINib *)getSearchBarNib;
+
++ (CGFloat)getHeight;
+
 @end

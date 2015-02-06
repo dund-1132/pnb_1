@@ -37,6 +37,7 @@
     [self createPlaceTabbarController];
 }
 
+#define DEFAULT_TAB_SELECTED    2  // HOME SCREEN
 - (void)createPlaceTabbarController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
                                                          bundle:[NSBundle mainBundle]];
@@ -57,7 +58,7 @@
     [optionViewController setTitle:@"Option"];
     UINavigationController *optionNavigationController = [[UINavigationController alloc] initWithRootViewController:optionViewController];
     [self.placeTabBarController setViewControllers:@[scheduleNavigationController, placeListNavigationController, homeNavigationController, advanceSearchNavigationController, optionNavigationController]];
-    
+    self.placeTabBarController.selectedIndex = DEFAULT_TAB_SELECTED;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +67,7 @@
 
 - (void)setValidateExpression {
     [self.userNameTextField setRegularExpression:ValidateUserName];
-    [self.userNameTextField setRegularExpression:ValidatePassword];
+    [self.passwordTextField setRegularExpression:ValidatePassword];
 }
 
 - (UIView *)inputAccessoryView {
@@ -132,6 +133,14 @@
 }
 
 - (BOOL)isValidateLoginForm {
+    if ([@"" isEqualToString:[self.userNameTextField text]]) {
+        self.notifyString = @"Please enter user name";
+        return NO;
+    }
+    if ([@"" isEqualToString:[self.passwordTextField text]]) {
+        self.notifyString = @"Please enter password";
+        return NO;
+    }
     if (![self.userNameTextField isValidate]) {
         self.notifyString = @"Invalid user name";
         return NO;
@@ -156,7 +165,7 @@
     }
     [self.notifyLabel setText:self.notifyString];
 //    if (isValidate) {
-    [self.navigationController presentViewController:self.placeTabBarController animated:YES completion:nil];
+        [self.navigationController presentViewController:self.placeTabBarController animated:YES completion:nil];
 //    }
 }
 

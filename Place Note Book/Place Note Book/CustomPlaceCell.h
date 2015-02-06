@@ -10,4 +10,10 @@
 
 @interface CustomPlaceCell : UITableViewCell
 
++ (NSString *)cellIdentifier;
+
++ (UINib *)getPlaceNib;
+
++ (CGFloat)getHeight;
+
 @end
