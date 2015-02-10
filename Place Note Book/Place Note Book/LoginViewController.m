@@ -155,7 +155,6 @@
 }
 
 - (IBAction)touchUpInsideLogin:(id)sender {
-    NSLog(@"Touch Up inside sign up button");
     BOOL isValidate = [self isValidateLoginForm];
     if (isValidate) {
         [self.activityIndicator startAnimating];

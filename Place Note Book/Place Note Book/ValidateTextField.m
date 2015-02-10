@@ -105,7 +105,6 @@
 }
 
 - (BOOL)isValidate {
-    NSLog(@"%@", self.expression);
     return [self validateTextField:self.text
                  regularExpression:self.expression];
 }

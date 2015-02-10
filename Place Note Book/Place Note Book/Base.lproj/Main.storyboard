@@ -292,7 +292,7 @@
                                             <constraint firstAttribute="width" constant="280" id="eWk-hL-Vye"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2wd-7s-S3A">
@@ -430,7 +430,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPm-CA-Su3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3728" y="595"/>
+            <point key="canvasLocation" x="3729" y="708"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="HME-z3-W5j">
@@ -471,11 +471,51 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="homeTableView" destination="Qnm-Wd-fqY" id="0cG-nJ-lm5"/>
+                        <segue destination="3fG-ss-QrZ" kind="push" identifier="pushToDetailViewController" id="FzQ-Xl-uu5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piy-xk-JpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3950" y="-114"/>
+        </scene>
+        <!--Place Detail Info-->
+        <scene sceneID="jBY-0r-agN">
+            <objects>
+                <viewController storyboardIdentifier="PlaceDetailViewController" title="Place Detail Info" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3fG-ss-QrZ" customClass="PlaceDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u2p-mX-hFk"/>
+                        <viewControllerLayoutGuide type="bottom" id="jKy-Hz-NUI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VVT-zY-UkI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="H2i-FM-azD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="3fG-ss-QrZ" id="vBd-4N-wcS"/>
+                                    <outlet property="delegate" destination="3fG-ss-QrZ" id="Qs6-4l-Cuj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="H2i-FM-azD" secondAttribute="trailing" id="AZi-p9-9Ez"/>
+                            <constraint firstItem="H2i-FM-azD" firstAttribute="leading" secondItem="VVT-zY-UkI" secondAttribute="leading" id="F5u-Wk-FXy"/>
+                            <constraint firstItem="H2i-FM-azD" firstAttribute="top" secondItem="VVT-zY-UkI" secondAttribute="top" id="S39-tB-xSE"/>
+                            <constraint firstItem="jKy-Hz-NUI" firstAttribute="top" secondItem="H2i-FM-azD" secondAttribute="bottom" id="vlx-M9-f7D"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yhw-7S-YXh"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="placeDetailTableView" destination="H2i-FM-azD" id="WV8-7Q-ous"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cp9-Z6-Uz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4574" y="-157"/>
         </scene>
         <!--Login Facebook-->
         <scene sceneID="znT-GT-8Ya">

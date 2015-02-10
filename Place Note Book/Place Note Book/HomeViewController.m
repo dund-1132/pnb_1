@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "CustomSearchBarCell.h"
 #import "CustomPlaceCell.h"
+#import "PlaceDetailViewController.h"
+#import "ImageDownload.h"
 
 #define ANIMATE_DURATION    0.8f
 #define CORVER_VIEW_ALPHA   0.6f
@@ -16,9 +18,11 @@
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
-@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @property (nonatomic, strong) UIView *coverView;
+@property (nonatomic, strong) NSCache *imageCache;
+@property (nonatomic, strong) UIRefreshControl *homeRefreshControl;
+@property (nonatomic, strong) UIBarButtonItem *searchButton;
+@property (nonatomic, strong) UIBarButtonItem *closeButton;
 
 @end
 
@@ -26,9 +30,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addControlButton];
     [self registerClass];
     [self addObserverNavigationBar];
     [self createCorverView];
+    [self addRefreshControl];
+}
+
+#pragma mark - control add to navigation bar
+- (void)addControlButton {
+    if (!self.searchButton) {
+        self.searchButton = [[UIBarButtonItem alloc] initWithTitle:@"Search"
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                            action:@selector(showSearchBar)];
+        self.navigationItem.leftBarButtonItem = self.searchButton;
+    }
+    if (!self.closeButton) {
+        self.closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Close"
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                            action:@selector(dismissHomeViewController)];
+        self.navigationItem.rightBarButtonItem = self.closeButton;
+    }
+}
+
+- (void)showSearchBar {
+    NSIndexPath *firstPlaceCellIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    [self.homeTableView scrollToRowAtIndexPath:firstPlaceCellIndexPath
+                              atScrollPosition:UITableViewScrollPositionBottom
+                                      animated:YES];
+}
+
+- (void)dismissHomeViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +75,22 @@
              forCellReuseIdentifier:[CustomSearchBarCell cellIdentifier]];
     [self.homeTableView registerNib:[CustomPlaceCell getPlaceNib]
              forCellReuseIdentifier:[CustomPlaceCell cellIdentifier]];
+}
+
+- (void)addRefreshControl {
+    self.homeRefreshControl = [[UIRefreshControl alloc] init];
+    [self.homeRefreshControl setBackgroundColor:[UIColor whiteColor]];
+    [self.homeRefreshControl setTintColor:[UIColor groupTableViewBackgroundColor]];
+    [self.homeRefreshControl addTarget:self
+                                action:@selector(updatePlaces)
+                      forControlEvents:UIControlEventValueChanged];
+    [self.homeTableView addSubview:self.homeRefreshControl];
+}
+
+#pragma mark - refresh control
+- (void)updatePlaces {
+    
+    //[self reloadHomeTableView];
 }
 
 #pragma mark - show/hide navigation bar
@@ -71,6 +122,15 @@
     CGRect coverRect = CGRectMake(0, coverOriginY, self.view.frame.size.width, self.view.frame.size.height - coverOriginY);
     self.coverView = [[UIView alloc] initWithFrame:coverRect];
     [self.coverView setBackgroundColor:[UIColor blackColor]];
+    UITapGestureRecognizer *tapToCoverViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                            action:@selector(cancelSearch)];
+    [self.coverView addGestureRecognizer:tapToCoverViewGesture];
+}
+
+- (void)cancelSearch {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self removeCoverView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"" object:nil];
 }
 
 - (void)addCoverView {
@@ -85,6 +145,14 @@
     [self.coverView removeFromSuperview];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSIndexPath *firstPlaceCellIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    [self.homeTableView scrollToRowAtIndexPath:firstPlaceCellIndexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:NO];
+}
 
 #pragma mark - TableView delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -102,14 +170,52 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         CustomSearchBarCell *cell = (CustomSearchBarCell *)[tableView dequeueReusableCellWithIdentifier:[CustomSearchBarCell cellIdentifier]];
+        
         return cell;
     } else {
         CustomPlaceCell *cell = (CustomPlaceCell *)[tableView dequeueReusableCellWithIdentifier:[CustomPlaceCell cellIdentifier]];
+        NSString *urlString = @"https://cdn4.iconfinder.com/data/icons/gnome-desktop-icons-png/PNG/64/Dialog-Apply-64.png";
+        [ImageDownload downloadImageFromURL:urlString andUpdateTo:[cell getIconImageView]];
+        
         return cell;
     }
 }
 
--(void)dealloc {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     [self performSegueWithIdentifier:@"pushToDetailViewController"
+                               sender:[self.homeTableView cellForRowAtIndexPath:indexPath]];
+}
+
+- (void)reloadHomeTableView {
+    [self.homeTableView reloadData];
+    if (self.homeRefreshControl) {
+        
+        [self.homeRefreshControl endRefreshing];
+    }
+}
+
+#define OFFSET_LOAD 100
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    CGFloat currentOffset = scrollView.contentOffset.y;
+    CGFloat maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    NSInteger offset = currentOffset - maximumOffset;
+    if (offset > OFFSET_LOAD) {
+        [self loadMorePlaces];
+    }
+}
+
+- (void)loadMorePlaces {
+    
+    [self reloadHomeTableView];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"pushToDetailViewController"]) {
+        NSLog(@"%@", sender);
+    }
+}
+
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

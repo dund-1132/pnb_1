@@ -7,20 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F400E19C1A89B5AE00DFB51C /* ImageDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F400E19B1A89B5AE00DFB51C /* ImageDownload.m */; };
+		F400E19E1A89F59E00DFB51C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F400E19D1A89F59E00DFB51C /* MapKit.framework */; };
 		F404E7831A82F64500C79F55 /* ValidateTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7821A82F64500C79F55 /* ValidateTextField.m */; };
 		F404E7861A83427800C79F55 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7851A83427800C79F55 /* HomeViewController.m */; };
-		F404E78B1A834BE100C79F55 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F404E78A1A834BE100C79F55 /* PlaceCell.xib */; };
 		F404E7901A835CE600C79F55 /* CustomSearchBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E78F1A835CE600C79F55 /* CustomSearchBarCell.m */; };
-		F404E7931A835D3800C79F55 /* CustomPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7921A835D3800C79F55 /* CustomPlaceCell.m */; };
 		F404E7961A83605F00C79F55 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7951A83605F00C79F55 /* ScheduleViewController.m */; };
 		F404E7991A83607800C79F55 /* PlaceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7981A83607800C79F55 /* PlaceListViewController.m */; };
 		F404E79C1A83609900C79F55 /* AdvanceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */; };
 		F404E79F1A8360AC00C79F55 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E79E1A8360AC00C79F55 /* OptionViewController.m */; };
+		F40F9A6C1A885DF700E15761 /* CustomPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F40F9A6A1A885DF700E15761 /* CustomPlaceCell.m */; };
+		F40F9A6D1A885DF700E15761 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40F9A6B1A885DF700E15761 /* PlaceCell.xib */; };
+		F40F9A701A885E6F00E15761 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40F9A6F1A885E6F00E15761 /* PlaceDetailViewController.m */; };
 		F41B243E1A82106A00068E92 /* CustomInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F41B243D1A82106A00068E92 /* CustomInputAccessoryView.m */; };
 		F41B24401A82107600068E92 /* CustomInputAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41B243F1A82107600068E92 /* CustomInputAccessoryView.xib */; };
 		F476DEEC1A7F752900B9501D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F476DEEB1A7F752900B9501D /* SignUpViewController.m */; };
 		F476DEEF1A7F753500B9501D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F476DEEE1A7F753500B9501D /* LoginViewController.m */; };
 		F476DEF21A7F754200B9501D /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F476DEF11A7F754200B9501D /* FacebookViewController.m */; };
+		F48FC20B1A88B47300F5DF2A /* CustomPlaceInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48FC20A1A88B47300F5DF2A /* CustomPlaceInformationCell.xib */; };
+		F48FC20E1A88B49B00F5DF2A /* CustomPlaceDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F48FC20D1A88B49B00F5DF2A /* CustomPlaceDetailCell.m */; };
+		F48FC2101A88B6B500F5DF2A /* CustomPlaceCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48FC20F1A88B6B500F5DF2A /* CustomPlaceCollectionCell.xib */; };
+		F48FC2121A88B83A00F5DF2A /* CustomPlaceDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48FC2111A88B83A00F5DF2A /* CustomPlaceDescriptionCell.xib */; };
+		F48FC2141A88B84D00F5DF2A /* CustomPlaceMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48FC2131A88B84D00F5DF2A /* CustomPlaceMapCell.xib */; };
+		F48FC2161A88B85B00F5DF2A /* CustomPlaceCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48FC2151A88B85B00F5DF2A /* CustomPlaceCommentCell.xib */; };
 		F4A024A51A8462C4005B701F /* SearchBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A024A41A8462C4005B701F /* SearchBarCell.xib */; };
 		F4A024AD1A84B796005B701F /* place.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A024AB1A84B796005B701F /* place.png */; };
 		F4A024AE1A84B796005B701F /* place@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A024AC1A84B796005B701F /* place@2x.png */; };
@@ -47,15 +56,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F400E19A1A89B5AE00DFB51C /* ImageDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownload.h; sourceTree = "<group>"; };
+		F400E19B1A89B5AE00DFB51C /* ImageDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownload.m; sourceTree = "<group>"; };
+		F400E19D1A89F59E00DFB51C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F404E7811A82F64500C79F55 /* ValidateTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidateTextField.h; sourceTree = "<group>"; };
 		F404E7821A82F64500C79F55 /* ValidateTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidateTextField.m; sourceTree = "<group>"; };
 		F404E7841A83427800C79F55 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		F404E7851A83427800C79F55 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		F404E78A1A834BE100C79F55 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		F404E78E1A835CE600C79F55 /* CustomSearchBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchBarCell.h; sourceTree = "<group>"; };
 		F404E78F1A835CE600C79F55 /* CustomSearchBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchBarCell.m; sourceTree = "<group>"; };
-		F404E7911A835D3800C79F55 /* CustomPlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlaceCell.h; sourceTree = "<group>"; };
-		F404E7921A835D3800C79F55 /* CustomPlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlaceCell.m; sourceTree = "<group>"; };
 		F404E7941A83605F00C79F55 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		F404E7951A83605F00C79F55 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		F404E7971A83607800C79F55 /* PlaceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceListViewController.h; sourceTree = "<group>"; };
@@ -64,6 +73,11 @@
 		F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceSearchViewController.m; sourceTree = "<group>"; };
 		F404E79D1A8360AC00C79F55 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
 		F404E79E1A8360AC00C79F55 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
+		F40F9A691A885DF700E15761 /* CustomPlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlaceCell.h; sourceTree = "<group>"; };
+		F40F9A6A1A885DF700E15761 /* CustomPlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlaceCell.m; sourceTree = "<group>"; };
+		F40F9A6B1A885DF700E15761 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
+		F40F9A6E1A885E6F00E15761 /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
+		F40F9A6F1A885E6F00E15761 /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
 		F41B243C1A82106A00068E92 /* CustomInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInputAccessoryView.h; sourceTree = "<group>"; };
 		F41B243D1A82106A00068E92 /* CustomInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInputAccessoryView.m; sourceTree = "<group>"; };
 		F41B243F1A82107600068E92 /* CustomInputAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInputAccessoryView.xib; sourceTree = "<group>"; };
@@ -73,6 +87,13 @@
 		F476DEEE1A7F753500B9501D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F476DEF01A7F754200B9501D /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookViewController.h; sourceTree = "<group>"; };
 		F476DEF11A7F754200B9501D /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookViewController.m; sourceTree = "<group>"; };
+		F48FC20A1A88B47300F5DF2A /* CustomPlaceInformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPlaceInformationCell.xib; sourceTree = "<group>"; };
+		F48FC20C1A88B49B00F5DF2A /* CustomPlaceDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlaceDetailCell.h; sourceTree = "<group>"; };
+		F48FC20D1A88B49B00F5DF2A /* CustomPlaceDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlaceDetailCell.m; sourceTree = "<group>"; };
+		F48FC20F1A88B6B500F5DF2A /* CustomPlaceCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPlaceCollectionCell.xib; sourceTree = "<group>"; };
+		F48FC2111A88B83A00F5DF2A /* CustomPlaceDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPlaceDescriptionCell.xib; sourceTree = "<group>"; };
+		F48FC2131A88B84D00F5DF2A /* CustomPlaceMapCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPlaceMapCell.xib; sourceTree = "<group>"; };
+		F48FC2151A88B85B00F5DF2A /* CustomPlaceCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPlaceCommentCell.xib; sourceTree = "<group>"; };
 		F4A024A41A8462C4005B701F /* SearchBarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBarCell.xib; sourceTree = "<group>"; };
 		F4A024AB1A84B796005B701F /* place.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = place.png; sourceTree = "<group>"; };
 		F4A024AC1A84B796005B701F /* place@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "place@2x.png"; sourceTree = "<group>"; };
@@ -99,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F400E19E1A89F59E00DFB51C /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F40F9A741A88616700E15761 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				F400E19A1A89B5AE00DFB51C /* ImageDownload.h */,
+				F400E19B1A89B5AE00DFB51C /* ImageDownload.m */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 		F41B24311A81EB7600068E92 /* custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +185,8 @@
 				F404E7981A83607800C79F55 /* PlaceListViewController.m */,
 				F404E7841A83427800C79F55 /* HomeViewController.h */,
 				F404E7851A83427800C79F55 /* HomeViewController.m */,
+				F40F9A6E1A885E6F00E15761 /* PlaceDetailViewController.h */,
+				F40F9A6F1A885E6F00E15761 /* PlaceDetailViewController.m */,
 				F404E79A1A83609900C79F55 /* AdvanceSearchViewController.h */,
 				F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */,
 				F404E79D1A8360AC00C79F55 /* OptionViewController.h */,
@@ -175,9 +208,16 @@
 		F4A024A81A8466AF005B701F /* place */ = {
 			isa = PBXGroup;
 			children = (
-				F404E7911A835D3800C79F55 /* CustomPlaceCell.h */,
-				F404E7921A835D3800C79F55 /* CustomPlaceCell.m */,
-				F404E78A1A834BE100C79F55 /* PlaceCell.xib */,
+				F40F9A691A885DF700E15761 /* CustomPlaceCell.h */,
+				F40F9A6A1A885DF700E15761 /* CustomPlaceCell.m */,
+				F40F9A6B1A885DF700E15761 /* PlaceCell.xib */,
+				F48FC20C1A88B49B00F5DF2A /* CustomPlaceDetailCell.h */,
+				F48FC20D1A88B49B00F5DF2A /* CustomPlaceDetailCell.m */,
+				F48FC20A1A88B47300F5DF2A /* CustomPlaceInformationCell.xib */,
+				F48FC20F1A88B6B500F5DF2A /* CustomPlaceCollectionCell.xib */,
+				F48FC2111A88B83A00F5DF2A /* CustomPlaceDescriptionCell.xib */,
+				F48FC2131A88B84D00F5DF2A /* CustomPlaceMapCell.xib */,
+				F48FC2151A88B85B00F5DF2A /* CustomPlaceCommentCell.xib */,
 			);
 			name = place;
 			sourceTree = "<group>";
@@ -206,6 +246,7 @@
 		F4B133FB1A7F623400132D3A = {
 			isa = PBXGroup;
 			children = (
+				F400E19D1A89F59E00DFB51C /* MapKit.framework */,
 				F4B134061A7F623500132D3A /* Place Note Book */,
 				F4B134231A7F623500132D3A /* Place Note BookTests */,
 				F4B134051A7F623500132D3A /* Products */,
@@ -228,6 +269,7 @@
 				F4B1340C1A7F623500132D3A /* AppDelegate.m */,
 				F4B134111A7F623500132D3A /* IntroductionController.h */,
 				F4B134121A7F623500132D3A /* IntroductionController.m */,
+				F40F9A741A88616700E15761 /* data */,
 				F476DEF31A7F754600B9501D /* controller */,
 				F43038D71A807C3C00302D62 /* network */,
 				F41B24311A81EB7600068E92 /* custom */,
@@ -348,11 +390,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B134161A7F623500132D3A /* Main.storyboard in Resources */,
+				F48FC2141A88B84D00F5DF2A /* CustomPlaceMapCell.xib in Resources */,
+				F48FC2161A88B85B00F5DF2A /* CustomPlaceCommentCell.xib in Resources */,
+				F48FC20B1A88B47300F5DF2A /* CustomPlaceInformationCell.xib in Resources */,
 				F4A024AD1A84B796005B701F /* place.png in Resources */,
 				F4A024B11A84C440005B701F /* star.png in Resources */,
+				F40F9A6D1A885DF700E15761 /* PlaceCell.xib in Resources */,
 				F4B1341B1A7F623500132D3A /* LaunchScreen.xib in Resources */,
+				F48FC2101A88B6B500F5DF2A /* CustomPlaceCollectionCell.xib in Resources */,
 				F4B134181A7F623500132D3A /* Images.xcassets in Resources */,
-				F404E78B1A834BE100C79F55 /* PlaceCell.xib in Resources */,
+				F48FC2121A88B83A00F5DF2A /* CustomPlaceDescriptionCell.xib in Resources */,
 				F4A024B21A84C440005B701F /* star@2x.png in Resources */,
 				F41B24401A82107600068E92 /* CustomInputAccessoryView.xib in Resources */,
 				F4A024AE1A84B796005B701F /* place@2x.png in Resources */,
@@ -377,16 +424,19 @@
 				F41B243E1A82106A00068E92 /* CustomInputAccessoryView.m in Sources */,
 				F4B1340D1A7F623500132D3A /* AppDelegate.m in Sources */,
 				F476DEEC1A7F752900B9501D /* SignUpViewController.m in Sources */,
+				F48FC20E1A88B49B00F5DF2A /* CustomPlaceDetailCell.m in Sources */,
+				F400E19C1A89B5AE00DFB51C /* ImageDownload.m in Sources */,
 				F404E7861A83427800C79F55 /* HomeViewController.m in Sources */,
 				F476DEF21A7F754200B9501D /* FacebookViewController.m in Sources */,
 				F476DEEF1A7F753500B9501D /* LoginViewController.m in Sources */,
 				F404E7961A83605F00C79F55 /* ScheduleViewController.m in Sources */,
+				F40F9A701A885E6F00E15761 /* PlaceDetailViewController.m in Sources */,
 				F404E79C1A83609900C79F55 /* AdvanceSearchViewController.m in Sources */,
 				F4B134101A7F623500132D3A /* Place_Note_Book.xcdatamodeld in Sources */,
 				F404E79F1A8360AC00C79F55 /* OptionViewController.m in Sources */,
 				F4B134131A7F623500132D3A /* IntroductionController.m in Sources */,
-				F404E7931A835D3800C79F55 /* CustomPlaceCell.m in Sources */,
 				F4B1340A1A7F623500132D3A /* main.m in Sources */,
+				F40F9A6C1A885DF700E15761 /* CustomPlaceCell.m in Sources */,
 				F404E7901A835CE600C79F55 /* CustomSearchBarCell.m in Sources */,
 				F404E7991A83607800C79F55 /* PlaceListViewController.m in Sources */,
 				F404E7831A82F64500C79F55 /* ValidateTextField.m in Sources */,

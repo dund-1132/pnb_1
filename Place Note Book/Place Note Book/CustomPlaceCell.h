@@ -16,4 +16,8 @@
 
 + (CGFloat)getHeight;
 
+- (void)setIconImage:(UIImage *)image;
+
+- (UIImageView *)getIconImageView;
+
 @end
