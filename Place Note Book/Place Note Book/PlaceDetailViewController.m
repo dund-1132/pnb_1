@@ -60,7 +60,7 @@
     [self.downloadButton addTarget:self
                        action:@selector(downloadButtonDidClick)
              forControlEvents:UIControlEventTouchUpInside];
-    [self.downloadButton setTitle:@"Download" forState:UIControlStateNormal];
+    [self.downloadButton setTitle:@"Save" forState:UIControlStateNormal];
 }
 
 - (void)addShareButton {

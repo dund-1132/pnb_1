@@ -22,7 +22,9 @@
 
 @end
 
-@implementation CustomPlaceCell
+@implementation CustomPlaceCell {
+    UIImageView *fullScreenImageView;
+}
 
 + (NSString *)cellIdentifier {
     return @"PlaceCellIdentifier";
@@ -55,15 +57,15 @@
     [self setShadowForView:self.backgroundPlaceView];
 }
 
-- (void)setShadowForView:(UIView *)view {
-    [self.backgroundPlaceView.layer setCornerRadius:4.0f];
-    [self.backgroundPlaceView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [self.backgroundPlaceView.layer setBorderWidth:0.5f];
+- (void)setShadowForView:(UIView *)shadowView {
+    [shadowView.layer setCornerRadius:4.0f];
+    [shadowView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [shadowView.layer setBorderWidth:0.5f];
     
-    [self.backgroundPlaceView.layer setShadowColor:[UIColor lightGrayColor].CGColor];
-    [self.backgroundPlaceView.layer setShadowOpacity:0.5];
-    [self.backgroundPlaceView.layer setShadowRadius:4.0];
-    [self.backgroundPlaceView.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+    [shadowView.layer setShadowColor:[UIColor lightGrayColor].CGColor];
+    [shadowView.layer setShadowOpacity:0.5];
+    [shadowView.layer setShadowRadius:4.0];
+    [shadowView.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
 }
 
 - (void)prepareForReuse {
@@ -96,6 +98,49 @@
     [ImageDownload downloadImageFromURL:urlString andUpdateTo:imageView];
     
     return cell;
+}
+
+#define TRANSITION  0.7
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    if(fullScreenImageView == nil){
+        fullScreenImageView = [[UIImageView alloc] initWithFrame:window.frame];
+        [fullScreenImageView setBackgroundColor:[UIColor blackColor]];
+        UITapGestureRecognizer *tapOnce = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(removeFullScreenView)];
+        tapOnce.numberOfTapsRequired = 1;
+        [fullScreenImageView addGestureRecognizer:tapOnce];
+        [fullScreenImageView setUserInteractionEnabled:YES];
+        NSArray *subviews = [cell.contentView subviews];
+        if ([subviews count] > 0) {
+            UIImage *image = ((UIImageView *)[[cell.contentView subviews] objectAtIndex:0]).image;
+            fullScreenImageView.contentMode = UIViewContentModeScaleAspectFit;
+            [fullScreenImageView setImage:image];
+        } else {
+            // set default image
+        }
+    }
+    [UIView transitionWithView:window
+                      duration:TRANSITION
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                           [window addSubview:fullScreenImageView];
+    } completion:^(BOOL finished){
+        
+    }];
+}
+
+- (void)removeFullScreenView {
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    [UIView transitionWithView:window
+                      duration:TRANSITION
+                       options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                           [fullScreenImageView removeFromSuperview];
+                       } completion:^(BOOL finished){
+                           
+                       }];
 }
 
 @end

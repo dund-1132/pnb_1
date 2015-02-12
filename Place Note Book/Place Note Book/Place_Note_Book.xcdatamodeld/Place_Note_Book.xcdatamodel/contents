@@ -1,4 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="About" representedClassName="About" syncable="YES">
+        <attribute name="about_language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="about_status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="abouts" inverseEntity="Account" syncable="YES"/>
+    </entity>
+    <entity name="Account" representedClassName="Account" syncable="YES">
+        <attribute name="account_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="account_note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="account_password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="account_phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="account_position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="account_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="account_user_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="abouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="About" inverseName="account" inverseEntity="About" syncable="YES"/>
+        <relationship name="assesses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Assess" inverseName="account" inverseEntity="Assess" syncable="YES"/>
+        <relationship name="knows" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Know" inverseName="account" inverseEntity="Know" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Like" inverseName="account" inverseEntity="Like" syncable="YES"/>
+        <relationship name="paths" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Path" inverseName="account" inverseEntity="Path" syncable="YES"/>
+        <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Schedule" inverseName="account" inverseEntity="Schedule" syncable="YES"/>
+        <relationship name="shares" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Share" inverseName="account" inverseEntity="Share" syncable="YES"/>
+        <relationship name="synchronous" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Synchronous" inverseName="account" inverseEntity="Synchronous" syncable="YES"/>
+    </entity>
+    <entity name="Assess" representedClassName="Assess" syncable="YES">
+        <attribute name="assess_point" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="assess_status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="assesses" inverseEntity="Account" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="assesses" inverseEntity="Place" syncable="YES"/>
+    </entity>
+    <entity name="Know" representedClassName="Know" syncable="YES">
+        <attribute name="know_status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="knows" inverseEntity="Account" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="knows" inverseEntity="Place" syncable="YES"/>
+    </entity>
+    <entity name="Like" representedClassName="Like" syncable="YES">
+        <attribute name="like_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="likes" inverseEntity="Account" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="likes" inverseEntity="Place" syncable="YES"/>
+    </entity>
+    <entity name="Path" representedClassName="Path" syncable="YES">
+        <attribute name="path_list" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path_note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path_status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="paths" inverseEntity="Account" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="paths" inverseEntity="Place" syncable="YES"/>
+    </entity>
+    <entity name="Place" representedClassName="Place" syncable="YES">
+        <attribute name="place_address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_icon_path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_location_lat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_location_lng" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_map_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_phone_international" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_phone_local" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_rate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place_website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="assesses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Assess" inverseName="place" inverseEntity="Assess" syncable="YES"/>
+        <relationship name="knows" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Know" inverseName="place" inverseEntity="Know" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Like" inverseName="place" inverseEntity="Like" syncable="YES"/>
+        <relationship name="paths" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Path" inverseName="place" inverseEntity="Path" syncable="YES"/>
+        <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Schedule" inverseName="place" inverseEntity="Schedule" syncable="YES"/>
+        <relationship name="shares" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Share" inverseName="place" inverseEntity="Share" syncable="YES"/>
+    </entity>
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES">
+        <attribute name="schedule_content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schedule_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schedule_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="schedules" inverseEntity="Account" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="schedules" inverseEntity="Place" syncable="YES"/>
+    </entity>
+    <entity name="Share" representedClassName="Share" syncable="YES">
+        <attribute name="share_content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="share_status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="shares" inverseEntity="Account" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="shares" inverseEntity="Place" syncable="YES"/>
+    </entity>
+    <entity name="Synchronous" representedClassName="Synchronous" syncable="YES">
+        <attribute name="synchronous_content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synchronous_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synchronous_table" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synchronous_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="synchronous" inverseEntity="Account" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Place" positionX="-63" positionY="-18" width="128" height="328"/>
+        <element name="Account" positionX="-63" positionY="81" width="128" height="268"/>
+        <element name="Schedule" positionX="-54" positionY="90" width="128" height="118"/>
+        <element name="Path" positionX="-36" positionY="99" width="128" height="118"/>
+        <element name="Share" positionX="-18" positionY="108" width="128" height="103"/>
+        <element name="Assess" positionX="0" positionY="117" width="128" height="103"/>
+        <element name="Know" positionX="18" positionY="126" width="128" height="88"/>
+        <element name="Like" positionX="36" positionY="135" width="128" height="88"/>
+        <element name="Synchronous" positionX="-9" positionY="81" width="128" height="118"/>
+        <element name="About" positionX="0" positionY="99" width="128" height="88"/>
+    </elements>
 </model>

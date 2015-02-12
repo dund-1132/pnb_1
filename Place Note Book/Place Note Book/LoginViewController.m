@@ -13,7 +13,7 @@
 #import "PlaceListViewController.h"
 #import "HomeViewController.h"
 #import "AdvanceSearchViewController.h"
-#import "OptionViewController.h"
+#import "AdditionViewController.h"
 
 @interface LoginViewController () <CustomInputAccessoryViewDelegate>
 
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *notifyLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) UITabBarController *placeTabBarController;
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
 @end
 
@@ -35,30 +36,57 @@
     [self addObserverKeyboard];
     [self setValidateExpression];
     [self createPlaceTabbarController];
+    [self setShadowForView:self.backgroundView];
+    [self makeUp];
 }
 
-#define DEFAULT_TAB_SELECTED    2  // HOME SCREEN
+#define DEFAULT_TAB_SELECTED    0  // HOME SCREEN
 - (void)createPlaceTabbarController {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
                                                          bundle:[NSBundle mainBundle]];
     self.placeTabBarController = [[UITabBarController alloc] init];
-    ScheduleViewController *scheduleViewController = [storyboard instantiateViewControllerWithIdentifier:@"ScheduleViewController"];
-    [scheduleViewController setTitle:@"Schedule"];
-    UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
-    PlaceListViewController *placeListViewController = [storyboard instantiateViewControllerWithIdentifier:@"PlaceListViewController"];
-    [placeListViewController setTitle:@"Place List"];
-    UINavigationController *placeListNavigationController = [[UINavigationController alloc] initWithRootViewController:placeListViewController];
     HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     [homeViewController setTitle:@"Home"];
     UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
+    ScheduleViewController *scheduleViewController = [storyboard instantiateViewControllerWithIdentifier:@"ScheduleViewController"];
+    [scheduleViewController setTitle:@"Schedule"];
+    UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     AdvanceSearchViewController *advanceViewController = [storyboard instantiateViewControllerWithIdentifier:@"AdvanceSearchViewController"];
     [advanceViewController setTitle:@"Advance Search"];
     UINavigationController *advanceSearchNavigationController = [[UINavigationController alloc] initWithRootViewController:advanceViewController];
-    OptionViewController *optionViewController = [storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
-    [optionViewController setTitle:@"Option"];
-    UINavigationController *optionNavigationController = [[UINavigationController alloc] initWithRootViewController:optionViewController];
-    [self.placeTabBarController setViewControllers:@[scheduleNavigationController, placeListNavigationController, homeNavigationController, advanceSearchNavigationController, optionNavigationController]];
+    PlaceListViewController *placeListViewController = [storyboard instantiateViewControllerWithIdentifier:@"PlaceListViewController"];
+    [placeListViewController setTitle:@"Place List"];
+    UINavigationController *placeListNavigationController = [[UINavigationController alloc] initWithRootViewController:placeListViewController];
+    AdditionViewController *additionViewController = [storyboard instantiateViewControllerWithIdentifier:@"AdditionViewController"];
+    [additionViewController setTitle:@"Addition"];
+    UINavigationController *additionNavigationController = [[UINavigationController alloc] initWithRootViewController:additionViewController];
+    [self.placeTabBarController setViewControllers:@[homeNavigationController, scheduleNavigationController, advanceSearchNavigationController, placeListNavigationController, additionNavigationController]];
     self.placeTabBarController.selectedIndex = DEFAULT_TAB_SELECTED;
+}
+
+- (void)setShadowForView:(UIView *)shadowView {
+    [shadowView.layer setShadowColor:[UIColor lightGrayColor].CGColor];
+    [shadowView.layer setShadowOpacity:0.5];
+    [shadowView.layer setShadowRadius:4.0];
+    [shadowView.layer setShadowOffset:CGSizeMake(1.0, 2.0)];
+}
+
+- (void)makeUp {
+    [self makeUpTextField:self.userNameTextField];
+    [self makeUpTextField:self.passwordTextField];
+    [self makeButton:self.loginButton];
+}
+
+- (void)makeUpTextField:(UITextField *)textField {
+    textField.layer.borderColor = [UIColor colorWithRed:192.0/255
+                                                  green:192.0/255
+                                                   blue:192.0/255
+                                                  alpha:1.0].CGColor;
+    textField.layer.borderWidth = 0.5f;
+}
+
+- (void)makeButton:(UIButton *)button {
+    button.layer.cornerRadius = 4.0f;
 }
 
 - (void)didReceiveMemoryWarning {

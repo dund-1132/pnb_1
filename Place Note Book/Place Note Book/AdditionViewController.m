@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 framgiavn. All rights reserved.
 //
 
-#import "OptionViewController.h"
+#import "AdditionViewController.h"
 
-@interface OptionViewController ()
+@interface AdditionViewController ()
 
 @end
 
-@implementation OptionViewController
+@implementation AdditionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
