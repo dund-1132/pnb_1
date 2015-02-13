@@ -8,6 +8,7 @@
 
 #import "CustomPlaceDetailCell.h"
 #import "ImageDownload.h"
+#import "CustomPageImageView.h"
 #import <MapKit/MapKit.h>
 
 #define PLACE_DETAIL_IDENTIFIER_INFORMATION   @"PlaceDetailInformationCell"
@@ -164,6 +165,13 @@ static MKMapView *mapView;
     [ImageDownload downloadImageFromURL:urlString andUpdateTo:imageView];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView scrollToItemAtIndexPath:indexPath
+                           atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                   animated:YES];
+    [[CustomPageImageView shareCustomPageImageView] showPageImageView];
 }
 
 @end

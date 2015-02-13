@@ -13,52 +13,144 @@
                         <viewControllerLayoutGuide type="bottom" id="F6z-yW-N1M"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tch-fh-STW">
-                                <rect key="frame" x="127" y="265" width="150" height="50"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ZHB-8w-W0O" kind="presentation" id="1Xw-Dd-6R1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wke-aW-5nO">
-                                <rect key="frame" x="127" y="338" width="150" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Sign In"/>
-                                <connections>
-                                    <segue destination="T8g-p6-eOV" kind="presentation" identifier="" id="b7w-Cu-l5W"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsv-ew-afC">
-                                <rect key="frame" x="127" y="420" width="150" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Facebook"/>
-                                <connections>
-                                    <segue destination="7lk-U7-YJD" kind="presentation" id="8yG-zI-Ra3"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--- Framgia ---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzj-gy-vdT">
-                                <rect key="frame" x="107" y="673" width="200" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3xO-ym-3HZ">
+                                <rect key="frame" x="104" y="140" width="310" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="72c-rb-OBv">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PL4-kZ-3sM"/>
+                                            <constraint firstAttribute="width" constant="50" id="vl7-oM-aPc"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tch-fh-STW">
+                                        <rect key="frame" x="50" y="0.0" width="260" height="50"/>
+                                        <color key="backgroundColor" red="0.10196078431372549" green="0.73725490196078436" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ZHB-8w-W0O" kind="presentation" id="1Xw-Dd-6R1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="72c-rb-OBv" firstAttribute="top" secondItem="3xO-ym-3HZ" secondAttribute="top" id="69c-Ek-T7g"/>
+                                    <constraint firstAttribute="height" constant="50" id="7bh-cv-wab"/>
+                                    <constraint firstItem="tch-fh-STW" firstAttribute="leading" secondItem="72c-rb-OBv" secondAttribute="trailing" id="MQm-PU-mDw"/>
+                                    <constraint firstItem="72c-rb-OBv" firstAttribute="leading" secondItem="3xO-ym-3HZ" secondAttribute="leading" id="Pmo-dX-akb"/>
+                                    <constraint firstItem="tch-fh-STW" firstAttribute="top" secondItem="3xO-ym-3HZ" secondAttribute="top" id="oED-si-hgX"/>
+                                    <constraint firstAttribute="bottom" secondItem="tch-fh-STW" secondAttribute="bottom" id="sJn-Vl-sUr"/>
+                                    <constraint firstAttribute="trailing" secondItem="tch-fh-STW" secondAttribute="trailing" id="yQF-Ge-PzH"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="----- or -----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4K-YQ-4DC">
+                                <rect key="frame" x="0.0" y="283" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zWZ-B1-AdH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvR-nJ-gdz">
+                                <rect key="frame" x="104" y="206" width="310" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Gn-LP-1IJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="qXh-pL-gy4"/>
+                                            <constraint firstAttribute="height" constant="50" id="y6a-ex-gua"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wke-aW-5nO">
+                                        <rect key="frame" x="50" y="0.0" width="260" height="50"/>
+                                        <color key="backgroundColor" red="0.10196078431372549" green="0.73725490196078436" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="T8g-p6-eOV" kind="presentation" identifier="" id="b7w-Cu-l5W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1e5-mh-EWD"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wke-aW-5nO" secondAttribute="trailing" id="5eo-7d-cOi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wke-aW-5nO" secondAttribute="bottom" id="5i7-l5-4qi"/>
+                                    <constraint firstItem="1Gn-LP-1IJ" firstAttribute="top" secondItem="kvR-nJ-gdz" secondAttribute="top" id="KVZ-R3-fre"/>
+                                    <constraint firstItem="1Gn-LP-1IJ" firstAttribute="leading" secondItem="kvR-nJ-gdz" secondAttribute="leading" id="LLW-4r-Xwf"/>
+                                    <constraint firstItem="Wke-aW-5nO" firstAttribute="leading" secondItem="1Gn-LP-1IJ" secondAttribute="trailing" id="WeD-34-yBv"/>
+                                    <constraint firstItem="Wke-aW-5nO" firstAttribute="top" secondItem="kvR-nJ-gdz" secondAttribute="top" id="XfX-fS-72F"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--- Framgia Vietnam ---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzj-gy-vdT">
+                                <rect key="frame" x="107" y="600" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YC1-IO-fm3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mXc-6N-Swa">
+                                <rect key="frame" x="104" y="331" width="310" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="G6u-OU-iYn">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2Jk-3n-MNF"/>
+                                            <constraint firstAttribute="width" constant="50" id="5fi-jK-geD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsv-ew-afC">
+                                        <rect key="frame" x="50" y="0.0" width="260" height="50"/>
+                                        <color key="backgroundColor" red="0.10196078431372549" green="0.73725490196078436" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                        <state key="normal" title="Facebook">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="7lk-U7-YJD" kind="presentation" id="8yG-zI-Ra3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Qsv-ew-afC" firstAttribute="top" secondItem="mXc-6N-Swa" secondAttribute="top" id="HHr-LL-Q4s"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qsv-ew-afC" secondAttribute="trailing" id="Qs5-lf-uNd"/>
+                                    <constraint firstItem="Qsv-ew-afC" firstAttribute="leading" secondItem="G6u-OU-iYn" secondAttribute="trailing" id="SFq-xH-NWl"/>
+                                    <constraint firstItem="G6u-OU-iYn" firstAttribute="top" secondItem="mXc-6N-Swa" secondAttribute="top" id="U6K-eE-vn1"/>
+                                    <constraint firstAttribute="height" constant="50" id="gN2-HX-ipK"/>
+                                    <constraint firstItem="G6u-OU-iYn" firstAttribute="leading" secondItem="mXc-6N-Swa" secondAttribute="leading" id="lnT-bD-PD6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qsv-ew-afC" secondAttribute="bottom" id="tLE-Qj-XKE"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="tch-fh-STW" secondAttribute="centerX" id="0gm-YC-cTU"/>
-                            <constraint firstAttribute="centerY" secondItem="Wke-aW-5nO" secondAttribute="centerY" id="12M-Pf-JnX"/>
-                            <constraint firstItem="F6z-yW-N1M" firstAttribute="top" secondItem="fzj-gy-vdT" secondAttribute="bottom" constant="20" id="3EW-mr-FqX"/>
-                            <constraint firstAttribute="centerX" secondItem="Qsv-ew-afC" secondAttribute="centerX" id="4Pq-dk-uTB"/>
-                            <constraint firstItem="Qsv-ew-afC" firstAttribute="top" secondItem="Wke-aW-5nO" secondAttribute="bottom" constant="20" id="JSf-mi-j7V"/>
-                            <constraint firstItem="Wke-aW-5nO" firstAttribute="top" secondItem="tch-fh-STW" secondAttribute="bottom" constant="20" id="bJg-bz-3Au"/>
-                            <constraint firstAttribute="centerX" secondItem="fzj-gy-vdT" secondAttribute="centerX" id="qLW-6C-vTc"/>
-                            <constraint firstAttribute="centerX" secondItem="Wke-aW-5nO" secondAttribute="centerX" id="tMs-GX-530"/>
+                            <constraint firstItem="mXc-6N-Swa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="120" id="6rZ-ej-dpJ"/>
+                            <constraint firstItem="fzj-gy-vdT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="I6a-s2-xuG"/>
+                            <constraint firstAttribute="trailing" secondItem="mXc-6N-Swa" secondAttribute="trailing" id="KIu-zp-urc"/>
+                            <constraint firstItem="3xO-ym-3HZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="120" id="Qm5-lx-857"/>
+                            <constraint firstAttribute="centerY" secondItem="j4K-YQ-4DC" secondAttribute="centerY" id="Rle-8U-ms2"/>
+                            <constraint firstItem="j4K-YQ-4DC" firstAttribute="top" secondItem="kvR-nJ-gdz" secondAttribute="bottom" constant="30" id="aZC-eS-UPS"/>
+                            <constraint firstItem="mXc-6N-Swa" firstAttribute="top" secondItem="j4K-YQ-4DC" secondAttribute="bottom" constant="30" id="bKN-4Q-M72"/>
+                            <constraint firstAttribute="trailing" secondItem="kvR-nJ-gdz" secondAttribute="trailing" id="bhK-eZ-uqC"/>
+                            <constraint firstAttribute="centerX" secondItem="j4K-YQ-4DC" secondAttribute="centerX" id="fSJ-G6-4Il"/>
+                            <constraint firstAttribute="trailing" secondItem="3xO-ym-3HZ" secondAttribute="trailing" id="iDy-yY-BX7"/>
+                            <constraint firstItem="kvR-nJ-gdz" firstAttribute="top" secondItem="3xO-ym-3HZ" secondAttribute="bottom" constant="10" id="oes-eD-AQI"/>
+                            <constraint firstAttribute="trailing" secondItem="fzj-gy-vdT" secondAttribute="trailing" id="piF-Of-3HT"/>
+                            <constraint firstItem="kvR-nJ-gdz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="120" id="rdI-3S-kk5"/>
+                            <constraint firstItem="F6z-yW-N1M" firstAttribute="top" secondItem="fzj-gy-vdT" secondAttribute="bottom" constant="20" id="ugk-7b-EFW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Place Note Book" id="B9p-UV-di6">
@@ -600,10 +692,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jzv-1U-CeK" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RYH-cW-YxE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="RYH-cW-YxE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.039215686274509803" green="0.71764705882352942" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -672,5 +769,6 @@
     </scenes>
     <resources>
         <image name="account.png" width="48" height="48"/>
+        <image name="facebook.png" width="50" height="50"/>
     </resources>
 </document>

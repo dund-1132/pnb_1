@@ -8,6 +8,7 @@
 
 #import "CustomPlaceCell.h"
 #import "ImageDownload.h"
+#import "CustomPageImageView.h"
 
 #define PLACE_CELL_HEIGHT   278
 
@@ -22,9 +23,7 @@
 
 @end
 
-@implementation CustomPlaceCell {
-    UIImageView *fullScreenImageView;
-}
+@implementation CustomPlaceCell
 
 + (NSString *)cellIdentifier {
     return @"PlaceCellIdentifier";
@@ -100,47 +99,11 @@
     return cell;
 }
 
-#define TRANSITION  0.7
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    if(fullScreenImageView == nil){
-        fullScreenImageView = [[UIImageView alloc] initWithFrame:window.frame];
-        [fullScreenImageView setBackgroundColor:[UIColor blackColor]];
-        UITapGestureRecognizer *tapOnce = [[UITapGestureRecognizer alloc]
-                                           initWithTarget:self
-                                           action:@selector(removeFullScreenView)];
-        tapOnce.numberOfTapsRequired = 1;
-        [fullScreenImageView addGestureRecognizer:tapOnce];
-        [fullScreenImageView setUserInteractionEnabled:YES];
-        NSArray *subviews = [cell.contentView subviews];
-        if ([subviews count] > 0) {
-            UIImage *image = ((UIImageView *)[[cell.contentView subviews] objectAtIndex:0]).image;
-            fullScreenImageView.contentMode = UIViewContentModeScaleAspectFit;
-            [fullScreenImageView setImage:image];
-        } else {
-            // set default image
-        }
-    }
-    [UIView transitionWithView:window
-                      duration:TRANSITION
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{
-                           [window addSubview:fullScreenImageView];
-    } completion:^(BOOL finished){
-        
-    }];
-}
-
-- (void)removeFullScreenView {
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    [UIView transitionWithView:window
-                      duration:TRANSITION
-                       options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-                           [fullScreenImageView removeFromSuperview];
-                       } completion:^(BOOL finished){
-                           
-                       }];
+    [collectionView scrollToItemAtIndexPath:indexPath
+                           atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                   animated:YES];
+    [[CustomPageImageView shareCustomPageImageView] showPageImageView];
 }
 
 @end

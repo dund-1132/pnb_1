@@ -43,12 +43,9 @@ static JSONDownload *staticRequest;
     NSURLRequest *request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          timeoutInterval:REQUEST_TIMEOUT];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
-    [connection scheduleInRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSDefaultRunLoopMode];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connection) {
         [connection start];
-        
     }
 }
 
@@ -63,7 +60,9 @@ static JSONDownload *staticRequest;
     [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
+    if (connection) {
+        [connection start];
+    }
 }
 
 #pragma mark - handle NSURLConnectionDelegate

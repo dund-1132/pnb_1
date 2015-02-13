@@ -33,6 +33,12 @@
 		F40F9A6C1A885DF700E15761 /* CustomPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F40F9A6A1A885DF700E15761 /* CustomPlaceCell.m */; };
 		F40F9A6D1A885DF700E15761 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40F9A6B1A885DF700E15761 /* PlaceCell.xib */; };
 		F40F9A701A885E6F00E15761 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40F9A6F1A885E6F00E15761 /* PlaceDetailViewController.m */; };
+		F411B52C1A8D8B670062BDDE /* PageImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F411B52B1A8D8B670062BDDE /* PageImageView.xib */; };
+		F411B52F1A8D8B930062BDDE /* CustomPageImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F411B52E1A8D8B930062BDDE /* CustomPageImageView.m */; };
+		F411B5321A8DE6F20062BDDE /* icon-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = F411B5301A8DE6F20062BDDE /* icon-launch.png */; };
+		F411B5331A8DE6F20062BDDE /* icon-launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F411B5311A8DE6F20062BDDE /* icon-launch@2x.png */; };
+		F411B53E1A8E00BC0062BDDE /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F411B53C1A8E00BC0062BDDE /* facebook.png */; };
+		F411B53F1A8E00BC0062BDDE /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F411B53D1A8E00BC0062BDDE /* facebook@2x.png */; };
 		F41B243E1A82106A00068E92 /* CustomInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F41B243D1A82106A00068E92 /* CustomInputAccessoryView.m */; };
 		F41B24401A82107600068E92 /* CustomInputAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F41B243F1A82107600068E92 /* CustomInputAccessoryView.xib */; };
 		F4258B281A8AF84700858216 /* JSONDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F4258B271A8AF84700858216 /* JSONDownload.m */; };
@@ -121,6 +127,13 @@
 		F40F9A6B1A885DF700E15761 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		F40F9A6E1A885E6F00E15761 /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
 		F40F9A6F1A885E6F00E15761 /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
+		F411B52B1A8D8B670062BDDE /* PageImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageImageView.xib; sourceTree = "<group>"; };
+		F411B52D1A8D8B930062BDDE /* CustomPageImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPageImageView.h; sourceTree = "<group>"; };
+		F411B52E1A8D8B930062BDDE /* CustomPageImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPageImageView.m; sourceTree = "<group>"; };
+		F411B5301A8DE6F20062BDDE /* icon-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-launch.png"; sourceTree = "<group>"; };
+		F411B5311A8DE6F20062BDDE /* icon-launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-launch@2x.png"; sourceTree = "<group>"; };
+		F411B53C1A8E00BC0062BDDE /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		F411B53D1A8E00BC0062BDDE /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
 		F41B243C1A82106A00068E92 /* CustomInputAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInputAccessoryView.h; sourceTree = "<group>"; };
 		F41B243D1A82106A00068E92 /* CustomInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInputAccessoryView.m; sourceTree = "<group>"; };
 		F41B243F1A82107600068E92 /* CustomInputAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomInputAccessoryView.xib; sourceTree = "<group>"; };
@@ -292,6 +305,9 @@
 				F40F9A691A885DF700E15761 /* CustomPlaceCell.h */,
 				F40F9A6A1A885DF700E15761 /* CustomPlaceCell.m */,
 				F40F9A6B1A885DF700E15761 /* PlaceCell.xib */,
+				F411B52D1A8D8B930062BDDE /* CustomPageImageView.h */,
+				F411B52E1A8D8B930062BDDE /* CustomPageImageView.m */,
+				F411B52B1A8D8B670062BDDE /* PageImageView.xib */,
 				F48FC20C1A88B49B00F5DF2A /* CustomPlaceDetailCell.h */,
 				F48FC20D1A88B49B00F5DF2A /* CustomPlaceDetailCell.m */,
 				F48FC20A1A88B47300F5DF2A /* CustomPlaceInformationCell.xib */,
@@ -316,6 +332,10 @@
 		F4A024AA1A84B722005B701F /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				F411B53C1A8E00BC0062BDDE /* facebook.png */,
+				F411B53D1A8E00BC0062BDDE /* facebook@2x.png */,
+				F411B5301A8DE6F20062BDDE /* icon-launch.png */,
+				F411B5311A8DE6F20062BDDE /* icon-launch@2x.png */,
 				F4036E1E1A8C3D930079FB7A /* account.png */,
 				F4036E1F1A8C3D930079FB7A /* account@2x.png */,
 				F4258B311A8B144100858216 /* dismiss.png */,
@@ -479,8 +499,10 @@
 				F48FC2161A88B85B00F5DF2A /* CustomPlaceCommentCell.xib in Resources */,
 				F48FC20B1A88B47300F5DF2A /* CustomPlaceInformationCell.xib in Resources */,
 				F4A024AD1A84B796005B701F /* place.png in Resources */,
+				F411B52C1A8D8B670062BDDE /* PageImageView.xib in Resources */,
 				F4A024B11A84C440005B701F /* star.png in Resources */,
 				F40F9A6D1A885DF700E15761 /* PlaceCell.xib in Resources */,
+				F411B5321A8DE6F20062BDDE /* icon-launch.png in Resources */,
 				F4B1341B1A7F623500132D3A /* LaunchScreen.xib in Resources */,
 				F48FC2101A88B6B500F5DF2A /* CustomPlaceCollectionCell.xib in Resources */,
 				F4B134181A7F623500132D3A /* Images.xcassets in Resources */,
@@ -493,6 +515,9 @@
 				F41B24401A82107600068E92 /* CustomInputAccessoryView.xib in Resources */,
 				F4A024AE1A84B796005B701F /* place@2x.png in Resources */,
 				F4A024A51A8462C4005B701F /* SearchBarCell.xib in Resources */,
+				F411B5331A8DE6F20062BDDE /* icon-launch@2x.png in Resources */,
+				F411B53F1A8E00BC0062BDDE /* facebook@2x.png in Resources */,
+				F411B53E1A8E00BC0062BDDE /* facebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F411B52F1A8D8B930062BDDE /* CustomPageImageView.m in Sources */,
 				F4036E361A8C864C0079FB7A /* Share.m in Sources */,
 				F41B243E1A82106A00068E92 /* CustomInputAccessoryView.m in Sources */,
 				F4B1340D1A7F623500132D3A /* AppDelegate.m in Sources */,
