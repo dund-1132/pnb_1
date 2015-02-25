@@ -14,6 +14,9 @@
 #import "HomeViewController.h"
 #import "AdvanceSearchViewController.h"
 #import "AdditionViewController.h"
+#import "JSONDownload.h"
+#import "RequetsFormat.h"
+#import "ModelManager.h"
 
 @interface LoginViewController () <CustomInputAccessoryViewDelegate>
 
@@ -22,8 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *loginScrollView;
 @property (nonatomic, strong) NSString *notifyString;
-@property (weak, nonatomic) IBOutlet UILabel *notifyLabel;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) UITabBarController *placeTabBarController;
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
@@ -35,33 +36,8 @@
     [super viewDidLoad];
     [self addObserverKeyboard];
     [self setValidateExpression];
-    [self createPlaceTabbarController];
     [self setShadowForView:self.backgroundView];
     [self makeUp];
-}
-
-#define DEFAULT_TAB_SELECTED    0  // HOME SCREEN
-- (void)createPlaceTabbarController {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
-                                                         bundle:[NSBundle mainBundle]];
-    self.placeTabBarController = [[UITabBarController alloc] init];
-    HomeViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    [homeViewController setTitle:@"Home"];
-    UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
-    ScheduleViewController *scheduleViewController = [storyboard instantiateViewControllerWithIdentifier:@"ScheduleViewController"];
-    [scheduleViewController setTitle:@"Schedule"];
-    UINavigationController *scheduleNavigationController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
-    AdvanceSearchViewController *advanceViewController = [storyboard instantiateViewControllerWithIdentifier:@"AdvanceSearchViewController"];
-    [advanceViewController setTitle:@"Advance Search"];
-    UINavigationController *advanceSearchNavigationController = [[UINavigationController alloc] initWithRootViewController:advanceViewController];
-    PlaceListViewController *placeListViewController = [storyboard instantiateViewControllerWithIdentifier:@"PlaceListViewController"];
-    [placeListViewController setTitle:@"Place List"];
-    UINavigationController *placeListNavigationController = [[UINavigationController alloc] initWithRootViewController:placeListViewController];
-    AdditionViewController *additionViewController = [storyboard instantiateViewControllerWithIdentifier:@"AdditionViewController"];
-    [additionViewController setTitle:@"Addition"];
-    UINavigationController *additionNavigationController = [[UINavigationController alloc] initWithRootViewController:additionViewController];
-    [self.placeTabBarController setViewControllers:@[homeNavigationController, scheduleNavigationController, advanceSearchNavigationController, placeListNavigationController, additionNavigationController]];
-    self.placeTabBarController.selectedIndex = DEFAULT_TAB_SELECTED;
 }
 
 - (void)setShadowForView:(UIView *)shadowView {
@@ -94,7 +70,7 @@
 }
 
 - (void)setValidateExpression {
-    [self.userNameTextField setRegularExpression:ValidateUserName];
+    [self.userNameTextField setRegularExpression:ValidateEmail];
     [self.passwordTextField setRegularExpression:ValidatePassword];
 }
 
@@ -149,7 +125,10 @@
     NSValue *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     float heightKeyboard = keyboardFrameBeginRect.size.height;
-    float signUpButtonYPosition = self.loginButton.frame.origin.y + self.loginButton.frame.size.height;
+    
+    float signUpOriginY = self.loginButton.frame.origin.y + self.backgroundView.frame.origin.y;
+    float signUpHeight = self.loginButton.frame.size.height + self.backgroundView.frame.size.height;
+    float signUpButtonYPosition = signUpOriginY + signUpHeight;
     float heightScrollView = 0.0f;
     if (signUpButtonYPosition > (self.view.frame.size.height - heightKeyboard)) {
         if (isShow) {
@@ -158,6 +137,22 @@
     }
     CGSize size = CGSizeMake(self.loginScrollView.frame.size.width, heightScrollView);
     [self.loginScrollView setContentSize:size];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    float originY = self.backgroundView.frame.origin.y;
+    CGPoint scrollPoint = CGPointMake(0, originY - self.loginScrollView.contentInset.top);
+    [self.loginScrollView setContentOffset:scrollPoint animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.loginScrollView setContentOffset:CGPointZero animated:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return NO;
 }
 
 - (BOOL)isValidateLoginForm {
@@ -182,17 +177,36 @@
     return YES;
 }
 
+#define ACCOUNT_FORMAT @"(account_email == '%@') AND (account_password == '%@')"
 - (IBAction)touchUpInsideLogin:(id)sender {
     BOOL isValidate = [self isValidateLoginForm];
-    if (isValidate) {
-        [self.activityIndicator startAnimating];
-        [self.notifyLabel setTextColor:[UIColor blackColor]];
-    } else {
-        [self.activityIndicator stopAnimating];
-    }
-    [self.notifyLabel setText:self.notifyString];
+    
+//    NSString *url = @"http://192.168.2.58/placenotebookservice/index.php?action=login&username=ngodacdu92@gmail.com&password=ngodacdu";
+//    [[JSONDownload shareJSONDownload] sendRequestWithURL:url
+//                                           methodRequest:[[RequetsFormat shareRequestFormat] getMethod]];
+    
 //    if (isValidate) {
-        [self.navigationController presentViewController:self.placeTabBarController animated:YES completion:nil];
+//        NSString *userName = [self.userNameTextField text];
+//        NSString *password = [self.passwordTextField text];
+//        NSString *predicate =
+//        [NSString stringWithFormat:ACCOUNT_FORMAT, userName, password];
+//        if ([[ModelManager shareModelManager] isExistRecordIn:TableAccount
+//                                           andPredicateFormat:predicate]) {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle:[NSBundle mainBundle]];
+            UITabBarController *placeTabBarController =
+            [storyboard instantiateViewControllerWithIdentifier:@"PlaceTabBarController"];
+            [self.navigationController presentViewController:placeTabBarController
+                                                    animated:YES
+                                                  completion:nil];
+//        } else {
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error, account not exist"
+//                                                                message:@"Please check account"
+//                                                               delegate:self
+//                                                      cancelButtonTitle:nil
+//                                                      otherButtonTitles:@"OK", nil];
+//            [alertView show];
+//        }
 //    }
 }
 

@@ -8,6 +8,12 @@
 
 #import "RequetsFormat.h"
 
+#define PROTOCOL    @"http://"
+#define SERVER_IP   @"192.168.2.105/"
+
+#define METHOD_GET  @"GET"
+#define METHOD_POST @"POST"
+
 @implementation RequetsFormat
 
 static RequetsFormat *staticRequestFormat;
@@ -27,6 +33,23 @@ static RequetsFormat *staticRequestFormat;
     }
     
     return self;
+}
+
+- (NSString *)url {
+    return [NSString stringWithFormat:@"%@%@", PROTOCOL, SERVER_IP];
+    
+}
+
+- (NSString *)getMethod {
+    return METHOD_GET;
+}
+
+- (NSString *)postMethod {
+    return METHOD_POST;
+}
+
+- (NSString *)requestFormatLogin:(NSString *)userName password:(NSString *)password {
+    return [NSString stringWithFormat:@"%@%@?username=%@&password=%@", PROTOCOL, SERVER_IP, userName, password];
 }
 
 @end

@@ -28,7 +28,8 @@ static NSCache *imageCache;
             NSURL *imageURL = [NSURL URLWithString:URLString];
             NSData *downloadedData = [NSData dataWithContentsOfURL:imageURL];
             if (downloadedData) {
-                NSString *cachesDirectory = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                NSString *cachesDirectory =
+                [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
                 NSString *filePath = [cachesDirectory stringByAppendingString:URLString];
                 [downloadedData writeToFile:filePath atomically:YES];
                 UIImage *downloadedImage = [[UIImage alloc] initWithData:downloadedData];

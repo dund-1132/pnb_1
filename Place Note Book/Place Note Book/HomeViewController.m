@@ -21,8 +21,7 @@
 @property (nonatomic, strong) UIView *coverView;
 @property (nonatomic, strong) NSCache *imageCache;
 @property (nonatomic, strong) UIRefreshControl *homeRefreshControl;
-@property (nonatomic, strong) UIBarButtonItem *searchButton;
-@property (nonatomic, strong) UIBarButtonItem *closeButton;
+@property (nonatomic, strong) UIView *statusView;
 
 @end
 
@@ -30,29 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addControlButton];
     [self registerClass];
     [self addObserverNavigationBar];
     [self createCorverView];
     [self addRefreshControl];
-}
-
-#pragma mark - control add to navigation bar
-- (void)addControlButton {
-    if (!self.searchButton) {
-        self.searchButton = [[UIBarButtonItem alloc] initWithTitle:@"Search"
-                                                             style:UIBarButtonItemStylePlain
-                                                            target:self
-                                                            action:@selector(showSearchBar)];
-        self.navigationItem.leftBarButtonItem = self.searchButton;
-    }
-    if (!self.closeButton) {
-        self.closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Close"
-                                                             style:UIBarButtonItemStylePlain
-                                                            target:self
-                                                            action:@selector(dismissHomeViewController)];
-        self.navigationItem.rightBarButtonItem = self.closeButton;
-    }
 }
 
 - (void)showSearchBar {
@@ -61,8 +41,7 @@
                               atScrollPosition:UITableViewScrollPositionBottom
                                       animated:YES];
 }
-
-- (void)dismissHomeViewController {
+- (IBAction)dismissHomeViewController:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -106,12 +85,25 @@
 }
 
 - (void)hideNavigationBar:(NSNotification *)notification {
+    if (!self.statusView) {
+        CGRect statusBarFrame = [[UIApplication sharedApplication] statusBarFrame];
+        self.statusView = [[UIView alloc] initWithFrame:statusBarFrame];
+        UIColor *statusColor = [UIColor colorWithRed:10/255.0
+                                               green:183/255.0
+                                                blue:128/255.0
+                                               alpha:1.0];
+        [self.statusView setBackgroundColor:statusColor];
+    }
+    [self.view addSubview:self.statusView];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self addCoverView];
 }
 
 - (void)showNavigationBar:(NSNotification *)notification {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    if (self.statusView) {
+        [self.statusView removeFromSuperview];
+    }
     [self removeCoverView];
 }
 
@@ -119,18 +111,21 @@
     float navigationBarOriginY = self.navigationController.navigationBar.frame.origin.y;
     float navigationBarSizeHeight = self.navigationController.navigationBar.frame.size.height;
     float coverOriginY = navigationBarOriginY + navigationBarSizeHeight;
-    CGRect coverRect = CGRectMake(0, coverOriginY, self.view.frame.size.width, self.view.frame.size.height - coverOriginY);
+    CGRect coverRect = CGRectMake(0,
+                                  coverOriginY,
+                                  self.view.frame.size.width,
+                                  self.view.frame.size.height - coverOriginY);
     self.coverView = [[UIView alloc] initWithFrame:coverRect];
     [self.coverView setBackgroundColor:[UIColor blackColor]];
-    UITapGestureRecognizer *tapToCoverViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                            action:@selector(cancelSearch)];
+    UITapGestureRecognizer *tapToCoverViewGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(cancelSearch)];
     [self.coverView addGestureRecognizer:tapToCoverViewGesture];
 }
 
 - (void)cancelSearch {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self removeCoverView];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TouchCoverView"
+                                                        object:nil];
 }
 
 - (void)addCoverView {
@@ -147,7 +142,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     NSIndexPath *firstPlaceCellIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     [self.homeTableView scrollToRowAtIndexPath:firstPlaceCellIndexPath
                               atScrollPosition:UITableViewScrollPositionTop
@@ -167,13 +161,18 @@
     return [CustomPlaceCell getHeight];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        CustomSearchBarCell *cell = (CustomSearchBarCell *)[tableView dequeueReusableCellWithIdentifier:[CustomSearchBarCell cellIdentifier]];
+        NSString *identifier = [CustomSearchBarCell cellIdentifier];
+        CustomSearchBarCell *cell =
+        (CustomSearchBarCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
         
         return cell;
     } else {
-        CustomPlaceCell *cell = (CustomPlaceCell *)[tableView dequeueReusableCellWithIdentifier:[CustomPlaceCell cellIdentifier]];
+        NSString *identifier = [CustomPlaceCell cellIdentifier];
+        CustomPlaceCell *cell =
+        (CustomPlaceCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
         NSString *urlString = @"https://cdn4.iconfinder.com/data/icons/gnome-desktop-icons-png/PNG/64/Dialog-Apply-64.png";
         [ImageDownload downloadImageFromURL:urlString andUpdateTo:[cell getIconImageView]];
         

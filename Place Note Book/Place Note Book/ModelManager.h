@@ -19,6 +19,19 @@
 #import "Schedule.h"
 #import "Place.h"
 
+typedef enum : NSUInteger {
+    TablePlace,
+    TableAccount,
+    TableLike,
+    TableKnow,
+    TableAssess,
+    TablePath,
+    TableShare,
+    TableAbout,
+    TableSynchronous,
+    TableSchedule
+} DatabaseTableName;
+
 @interface ModelManager : NSObject
 
 + (ModelManager *)shareModelManager;
@@ -42,5 +55,7 @@
 - (void)insertSynchronous:(NSDictionary *)synchronousInfo;
 
 - (void)insertSchedule:(NSDictionary *)scheduleInfo;
+
+- (BOOL)isExistRecordIn:(DatabaseTableName)tableName andPredicateFormat:(NSString *)format;
 
 @end

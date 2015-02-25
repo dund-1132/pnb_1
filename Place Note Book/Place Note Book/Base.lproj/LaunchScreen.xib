@@ -11,19 +11,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjk-b1-LNG">
-                    <rect key="frame" x="0.0" y="203" width="414" height="70"/>
+                    <rect key="frame" x="60" y="210" width="295" height="64"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon-launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-7V-gzm">
-                            <rect key="frame" x="26" y="3" width="64" height="64"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-7V-gzm">
+                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="64" id="J8Z-A9-SX3"/>
-                                <constraint firstAttribute="height" constant="64" id="g0e-9F-9WC"/>
+                                <constraint firstAttribute="height" constant="64" id="2kq-ym-sLk"/>
+                                <constraint firstAttribute="width" constant="64" id="Dkq-mn-uiJ"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Place Note Book" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                            <rect key="frame" x="98" y="3" width="313" height="64"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Note Book" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                            <rect key="frame" x="64" y="0.0" width="230" height="64"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="64" id="791-c6-uUT"/>
+                                <constraint firstAttribute="width" constant="230" id="TUL-Rx-Eda"/>
+                                <constraint firstAttribute="height" constant="64" id="r7U-wD-SYe"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,32 +32,30 @@
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="Jl6-7V-gzm" firstAttribute="leading" secondItem="sjk-b1-LNG" secondAttribute="leading" constant="25" id="4y1-di-uXT"/>
-                        <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" constant="3" id="6d8-Uv-gfe"/>
-                        <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" id="7wM-8v-XKC"/>
-                        <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="Jl6-7V-gzm" secondAttribute="trailing" id="NW5-1E-9kq"/>
-                        <constraint firstAttribute="height" constant="70" id="WY7-9t-x8i"/>
-                        <constraint firstAttribute="centerY" secondItem="Jl6-7V-gzm" secondAttribute="centerY" id="qGS-wK-2Rx"/>
+                        <constraint firstAttribute="width" constant="294" id="2oH-w4-R7w"/>
+                        <constraint firstItem="Jl6-7V-gzm" firstAttribute="leading" secondItem="sjk-b1-LNG" secondAttribute="leading" id="8Ya-o6-97K"/>
+                        <constraint firstItem="Jl6-7V-gzm" firstAttribute="top" secondItem="sjk-b1-LNG" secondAttribute="top" id="93b-HB-II0"/>
+                        <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" id="Xvb-oo-VL2"/>
+                        <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="sjk-b1-LNG" secondAttribute="top" id="hzj-D3-UVv"/>
+                        <constraint firstAttribute="height" constant="64" id="wss-bp-f8X"/>
                     </constraints>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Copyright 2015 iOS Framgia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="695" width="375" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Copyright 2015 iOS Framgia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                    <rect key="frame" x="20" y="699" width="375" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="b19-XS-uoJ"/>
+                        <constraint firstAttribute="height" constant="20" id="euy-Ql-ect"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.039215686274509803" green="0.71372549019607845" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="sjk-b1-LNG" secondAttribute="trailing" id="Q6d-Mp-dpj"/>
-                <constraint firstItem="sjk-b1-LNG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xyq-x3-x8V"/>
-                <constraint firstItem="sjk-b1-LNG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="200" id="ZzY-Mz-pR3"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="n0x-RH-yag"/>
-                <constraint firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" id="txp-Jl-8Jb"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yXh-pU-o9b"/>
+                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="4aQ-4C-JiO"/>
+                <constraint firstItem="sjk-b1-LNG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="120" id="KJD-Iu-Dcg"/>
+                <constraint firstAttribute="centerX" secondItem="sjk-b1-LNG" secondAttribute="centerX" id="PJf-eA-wTv"/>
+                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="Tme-hJ-coL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

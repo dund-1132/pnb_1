@@ -14,6 +14,7 @@
 #define TEXT_FIELD_BORDER_WIDTH 0.3f
 #define TEXT_FIELD_BORDER_RADIUS    5.0f
 #define ACCESSORY_HEIGHT    20
+#define INSET   10
 
 @interface ValidateTextField()
 
@@ -29,26 +30,14 @@
                                              selector:@selector(textFieldTextDidChange:)
                                                  name:UITextFieldTextDidChangeNotification
                                                object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onKeyboardShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
 }
 
-- (void)onKeyboardShow:(NSNotification *)notification {
-    if ([self isFirstResponder]) {
-        NSDictionary *info = [notification userInfo];
-        CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-        CGPoint textFieldOrigin = self.frame.origin;
-        CGFloat textFieldHeight = self.frame.size.height;
-        CGRect visibleRect = [UIScreen mainScreen].bounds;
-        visibleRect.size.height = visibleRect.size.height - keyboardSize.height - ACCESSORY_HEIGHT;
-        if ((textFieldOrigin.y + textFieldHeight) > visibleRect.size.height) {
-            CGPoint scrollPoint = CGPointMake(0.0, textFieldOrigin.y - visibleRect.size.height + textFieldHeight);
-            [(UIScrollView *)self.superview setContentOffset:scrollPoint
-                                                    animated:YES];
-        }
-    }
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    return CGRectInset(bounds, INSET, INSET);
+}
+
+- (CGRect)editingRectForBounds:(CGRect)bounds {
+    return CGRectInset(bounds, INSET, INSET);
 }
 
 - (void)setRegularExpression:(ValidateState)validateType {
@@ -74,15 +63,16 @@
             return;
         }
         if ([self isValidate]) {
-            self.layer.borderWidth = TEXT_FIELD_BORDER_WIDTH;
-            self.layer.borderColor = [UIColor greenColor].CGColor;
+            self.rightViewMode = UITextFieldViewModeAlways;
+            UIImage *validImage = [UIImage imageNamed:@"valid.png"];
+            self.rightView = [[UIImageView alloc] initWithImage:validImage];
         } else {
             if ([self.text isEqualToString:@""]) {
-                self.layer.borderWidth = 0.0f;
+                self.rightView = nil;
             } else {
-                self.layer.borderWidth = TEXT_FIELD_BORDER_WIDTH;
-                self.layer.cornerRadius = TEXT_FIELD_BORDER_RADIUS;
-                self.layer.borderColor = [UIColor redColor].CGColor;
+                self.rightViewMode = UITextFieldViewModeAlways;
+                UIImage *validImage = [UIImage imageNamed:@"invalid.png"];
+                self.rightView = [[UIImageView alloc] initWithImage:validImage];
             }
         }
     }

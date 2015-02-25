@@ -49,6 +49,19 @@ static JSONDownload *staticRequest;
     }
 }
 
+- (void)sendRequestWithURL:(NSString *)urlString methodRequest:(NSString *)method {
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:REQUEST_TIMEOUT];
+    [request setHTTPMethod:method];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if (connection) {
+        [connection start];
+    }
+}
+
 - (void)sendRequestWithURL:(NSString *)urlString
              methodRequest:(NSString *)method
                 bodyString:(NSString *)body {

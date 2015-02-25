@@ -8,6 +8,17 @@
 
 #import "ModelManager.h"
 
+#define TABLE_PLACE @"Place"
+#define TABLE_ACCOUNT @"Account"
+#define TABLE_LIKE @"Like"
+#define TABLE_KNOW @"Know"
+#define TABLE_ASSESS @"Assess"
+#define TABLE_PATH @"Path"
+#define TABLE_SHARE @"Share"
+#define TABLE_ABOUT @"About"
+#define TABLE_SYNCHRONOUS @"Synchronous"
+#define TABLE_SCHEDULE @"Schedule"
+
 @implementation ModelManager
 
 static ModelManager *staticModelManager;
@@ -64,22 +75,24 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertAccount:(NSDictionary *)accountInfo {
-    Account *account = [NSEntityDescription insertNewObjectForEntityForName:@"Account"
-                                                   inManagedObjectContext:[self managedObjectContext]];
+    Account *account =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Account"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (account != nil) {
         account.account_name = [accountInfo objectForKey:@"account_name"];
         account.account_position = [accountInfo objectForKey:@"account_position"];
         account.account_phone = [accountInfo objectForKey:@"account_phone"];
         account.account_user_name = [accountInfo objectForKey:@"account_user_name"];
+        account.account_email = [accountInfo objectForKey:@"account_email"];
         account.account_password = [accountInfo objectForKey:@"account_password"];
         account.account_note = [accountInfo objectForKey:@"account_note"];
         account.account_status = [accountInfo objectForKey:@"account_status"];
         
         NSError *savingError = nil;
         if ([[self managedObjectContext] save:&savingError]) {
-            // Successfully saved the context
+            NSLog(@"Successfully saved the context Account");
         } else {
-            // Failed to save the context
+            NSLog(@"Failed to save the context Account");
         }
     } else {
         // Failed to create the new object
@@ -87,8 +100,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertLike:(NSDictionary *)likeInfo {
-    Like *like = [NSEntityDescription insertNewObjectForEntityForName:@"Like"
-                                               inManagedObjectContext:[self managedObjectContext]];
+    Like *like =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Like"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (like != nil) {
         like.like_count = [likeInfo objectForKey:@"like_count"];
         [like.place addLikesObject:like];
@@ -106,8 +120,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertKnow:(NSDictionary *)knowInfo {
-    Know *know = [NSEntityDescription insertNewObjectForEntityForName:@"Know"
-                                               inManagedObjectContext:[self managedObjectContext]];
+    Know *know =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Know"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (know != nil) {
         know.know_status = [knowInfo objectForKey:@"know_status"];
         [know.place addKnowsObject:know];
@@ -125,8 +140,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertAssess:(NSDictionary *)assessInfo {
-    Assess *assess = [NSEntityDescription insertNewObjectForEntityForName:@"Assess"
-                                                   inManagedObjectContext:[self managedObjectContext]];
+    Assess *assess =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Assess"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (assess != nil) {
         assess.assess_point = [assessInfo objectForKey:@"assess_point"];
         assess.assess_status = [assessInfo objectForKey:@"assess_status"];
@@ -145,8 +161,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertPath:(NSDictionary *)pathInfo {
-    Path *path = [NSEntityDescription insertNewObjectForEntityForName:@"Path"
-                                               inManagedObjectContext:[self managedObjectContext]];
+    Path *path =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Path"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (path != nil) {
         path.path_list = [pathInfo objectForKey:@"path_list"];
         path.path_note = [pathInfo objectForKey:@"path_note"];
@@ -166,8 +183,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertShare:(NSDictionary *)shareInfo {
-    Share *share = [NSEntityDescription insertNewObjectForEntityForName:@"Share"
-                                                 inManagedObjectContext:[self managedObjectContext]];
+    Share *share =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Share"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (share != nil) {
         share.share_content = [shareInfo objectForKey:@"share_content"];
         share.share_status = [shareInfo objectForKey:@"share_status"];
@@ -186,8 +204,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertAbout:(NSDictionary *)aboutInfo {
-    About *about = [NSEntityDescription insertNewObjectForEntityForName:@"About"
-                                                 inManagedObjectContext:[self managedObjectContext]];
+    About *about =
+    [NSEntityDescription insertNewObjectForEntityForName:@"About"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (about != nil) {
         about.about_language = [aboutInfo objectForKey:@"about_language"];
         about.about_status = [aboutInfo objectForKey:@"about_status"];
@@ -205,8 +224,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertSynchronous:(NSDictionary *)synchronousInfo {
-    Synchronous *synchronous = [NSEntityDescription insertNewObjectForEntityForName:@"Synchronous"
-                                                             inManagedObjectContext:[self managedObjectContext]];
+    Synchronous *synchronous =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Synchronous"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (synchronous != nil) {
         synchronous.synchronous_time = [synchronousInfo objectForKey:@"synchronous_time"];
         synchronous.synchronous_table = [synchronousInfo objectForKey:@"synchronous_table"];
@@ -226,8 +246,9 @@ static ModelManager *staticModelManager;
 }
 
 - (void)insertSchedule:(NSDictionary *)scheduleInfo {
-    Schedule *schedule = [NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
-                                                       inManagedObjectContext:[self managedObjectContext]];
+    Schedule *schedule =
+    [NSEntityDescription insertNewObjectForEntityForName:@"Schedule"
+                                  inManagedObjectContext:[self managedObjectContext]];
     if (schedule != nil) {
         schedule.schedule_time = [scheduleInfo objectForKey:@""];
         schedule.schedule_content = [scheduleInfo objectForKey:@""];
@@ -244,6 +265,58 @@ static ModelManager *staticModelManager;
     } else {
         // Failed to create the new object
     }
+}
+
+- (BOOL)isExistRecordIn:(DatabaseTableName)tableName andPredicateFormat:(NSString *)format {
+    NSString *table = nil;
+    switch (tableName) {
+        case TablePlace:
+            table = TABLE_PLACE;
+            break;
+        case TableAccount:
+            table = TABLE_ACCOUNT;
+            break;
+        case TableLike:
+            table = TABLE_LIKE;
+            break;
+        case TableKnow:
+            table = TABLE_KNOW;
+            break;
+        case TableAssess:
+            table = TABLE_ASSESS;
+            break;
+        case TablePath:
+            table = TABLE_PATH;
+            break;
+        case TableShare:
+            table = TABLE_SHARE;
+            break;
+        case TableAbout:
+            table = TABLE_ABOUT;
+            break;
+        case TableSynchronous:
+            table = TABLE_SYNCHRONOUS;
+            break;
+        case TableSchedule:
+            table = TABLE_SCHEDULE;
+            break;
+        default:
+            break;
+    }
+
+    NSError *error = nil;
+    NSFetchRequest *checkExist = [[NSFetchRequest alloc] init];
+    [checkExist setEntity:[NSEntityDescription entityForName:table
+                                      inManagedObjectContext:[self managedObjectContext]]];
+    [checkExist setFetchLimit:1];
+    [checkExist setPredicate:[NSPredicate predicateWithFormat:format]];
+    NSArray *result = [[self managedObjectContext] executeFetchRequest:checkExist error:&error];
+    if ([result lastObject]) {
+        
+        return TRUE;
+    }
+    
+    return FALSE;
 }
 
 @end

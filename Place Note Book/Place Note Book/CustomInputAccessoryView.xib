@@ -10,39 +10,39 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqg-LA-eOZ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqg-LA-eOZ">
                     <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="FrC-Lc-EAl"/>
                         <constraint firstAttribute="height" constant="40" id="pCE-LG-ZR9"/>
                     </constraints>
-                    <state key="normal" title="Prev">
+                    <state key="normal" image="previous.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="clickPreviousButton:" destination="9LR-SX-QFt" eventType="touchUpInside" id="me1-7p-mlr"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqf-O4-YoL">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqf-O4-YoL">
                     <rect key="frame" x="50" y="0.0" width="50" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="CEo-Dx-A3N"/>
                         <constraint firstAttribute="height" constant="40" id="CPH-Dm-SeH"/>
                     </constraints>
-                    <state key="normal" title="Next">
+                    <state key="normal" image="next.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="clickNextButton:" destination="9LR-SX-QFt" eventType="touchUpInside" id="iea-i6-RhR"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-F8-H2j">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-F8-H2j">
                     <rect key="frame" x="550" y="0.0" width="50" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="7BO-WV-YER"/>
                         <constraint firstAttribute="height" constant="40" id="Tee-0J-Vad"/>
                     </constraints>
-                    <state key="normal" title="Done">
+                    <state key="normal" image="done.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -50,7 +50,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.24705882352941178" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ngT-F8-H2j" firstAttribute="top" secondItem="9LR-SX-QFt" secondAttribute="top" id="4ph-zL-Cqm"/>
                 <constraint firstItem="bqg-LA-eOZ" firstAttribute="leading" secondItem="9LR-SX-QFt" secondAttribute="leading" id="ER1-MW-GaG"/>
@@ -63,4 +63,9 @@
             <point key="canvasLocation" x="511" y="423"/>
         </view>
     </objects>
+    <resources>
+        <image name="done.png" width="50" height="40"/>
+        <image name="next.png" width="50" height="40"/>
+        <image name="previous.png" width="50" height="40"/>
+    </resources>
 </document>

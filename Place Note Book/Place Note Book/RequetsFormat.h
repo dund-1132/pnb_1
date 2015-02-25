@@ -12,4 +12,12 @@
 
 + (RequetsFormat *)shareRequestFormat;
 
+- (NSString *)url;
+
+- (NSString *)getMethod;
+
+- (NSString *)postMethod;
+
+- (NSString *)requestFormatLogin:(NSString *)userName password:(NSString *)password;
+
 @end

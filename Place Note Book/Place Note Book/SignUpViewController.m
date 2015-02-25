@@ -9,6 +9,10 @@
 #import "SignUpViewController.h"
 #import "CustomInputAccessoryView.h"
 #import "ValidateTextField.h"
+#import "ModelManager.h"
+#import "LoginViewController.h"
+
+#define DISTANCE 70
 
 @interface SignUpViewController () <UITextFieldDelegate, CustomInputAccessoryViewDelegate>
 
@@ -22,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *notifyLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatior;
 @property (nonatomic, strong) NSString *notifyString;
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
 
 @end
 
@@ -38,6 +43,8 @@
     [super viewDidLoad];
     [self addObserverKeyboard];
     [self setValidateExpression];
+    [self setShadowForView:self.backgroundView];
+    [self makeUp];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -76,12 +83,42 @@
     [self setContentSizeScrollView:notification onKeyboard:NO];
 }
 
+- (void)setShadowForView:(UIView *)shadowView {
+    [shadowView.layer setShadowColor:[UIColor lightGrayColor].CGColor];
+    [shadowView.layer setShadowOpacity:0.5];
+    [shadowView.layer setShadowRadius:4.0];
+    [shadowView.layer setShadowOffset:CGSizeMake(1.0, 2.0)];
+}
+
+- (void)makeUp {
+    [self makeUpTextField:self.userNameTextField];
+    [self makeUpTextField:self.emailTextField];
+    [self makeUpTextField:self.passwordTextField];
+    [self makeUpTextField:self.confirmPasswordTextField];
+    [self makeButton:self.signUpButton];
+}
+
+- (void)makeUpTextField:(UITextField *)textField {
+    textField.layer.borderColor = [UIColor colorWithRed:192.0/255
+                                                  green:192.0/255
+                                                   blue:192.0/255
+                                                  alpha:1.0].CGColor;
+    textField.layer.borderWidth = 0.5f;
+}
+
+- (void)makeButton:(UIButton *)button {
+    button.layer.cornerRadius = 4.0f;
+}
+
 - (void)setContentSizeScrollView:(NSNotification *)notification onKeyboard:(BOOL)isShow {
     NSDictionary *keyboardInfo = [notification userInfo];
     NSValue *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     float heightKeyboard = keyboardFrameBeginRect.size.height;
-    float signUpButtonYPosition = self.signUpButton.frame.origin.y + self.signUpButton.frame.size.height;
+    
+    float signUpOriginY = self.signUpButton.frame.origin.y + self.backgroundView.frame.origin.y;
+    float signUpHeight = self.signUpButton.frame.size.height + self.backgroundView.frame.size.height;
+    float signUpButtonYPosition = signUpOriginY + signUpHeight;
     float heightScrollView = 0.0f;
     if (signUpButtonYPosition > (self.view.frame.size.height - heightKeyboard)) {
         if (isShow) {
@@ -90,6 +127,17 @@
     }
     CGSize size = CGSizeMake(self.signUpScrollView.frame.size.width, heightScrollView);
     [self.signUpScrollView setContentSize:size];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    float originY = self.backgroundView.frame.origin.y + textField.frame.origin.y;
+    CGPoint scrollPoint = CGPointMake(0,
+                                      originY - self.signUpScrollView.contentInset.top - DISTANCE);
+    [self.signUpScrollView setContentOffset:scrollPoint animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.signUpScrollView setContentOffset:CGPointZero animated:YES];
 }
 
 - (IBAction)tapToScrollView:(UITapGestureRecognizer *)sender {
@@ -104,23 +152,23 @@
 
 - (BOOL)isValidateSignUpForm {
     if (![self.userNameTextField isValidate]) {
-        self.notifyString = @"Invalid user name";
+        self.notifyString = @"--> Invalid user name";
         return NO;
     }
     if (![self.emailTextField isValidate]) {
-        self.notifyString = @"Invalidate email";
+        self.notifyString = @"--> Invalidate email";
         return NO;
     }
     if (![self.passwordTextField isValidate]) {
-        self.notifyString = @"Invalidate password";
+        self.notifyString = @"--> Invalidate password";
         return NO;
     }
     if (![self.confirmPasswordTextField isValidate]) {
-        self.notifyString = @"Invalidate confirm password";
+        self.notifyString = @"--> Invalidate confirm password";
         return NO;
     }
     if (![[self.passwordTextField text] isEqualToString:[self.confirmPasswordTextField text]]) {
-        self.notifyString = @"Verify password and confirm password";
+        self.notifyString = @"--> Verify password and confirm password";
         return NO;
     }
     self.notifyString = @"Creating account";
@@ -128,14 +176,33 @@
     return YES;
 }
 
+#define ACCOUNT_FORMAT @"(account_email == '%@')"
 - (IBAction)touchUpInsideSignUp:(UIButton *)sender {
     if ([self isValidateSignUpForm]) {
         [self.activityIndicatior startAnimating];
-        [self.notifyLabel setTextColor:[UIColor blackColor]];
+        NSString *userName = [self.userNameTextField text];
+        NSString *email = [self.emailTextField text];
+        NSString *password = [self.passwordTextField text];
+        NSString *predicate =
+        [NSString stringWithFormat:ACCOUNT_FORMAT, email];
+        if ([[ModelManager shareModelManager] isExistRecordIn:TableAccount
+                                           andPredicateFormat:predicate]) {
+            [self.notifyLabel setTextColor:[UIColor blackColor]];
+            [self.notifyLabel setText:@"Fail, account exist"];
+        } else {
+            NSDictionary *account = @{
+                                      @"account_user_name" : userName,
+                                      @"account_email" : email,
+                                      @"account_password" : password
+                                      };
+            [[ModelManager shareModelManager] insertAccount:account];
+            [self performSegueWithIdentifier:@"signUpPushToLogin" sender:self];
+        }
     } else {
-        [self.activityIndicatior stopAnimating];
+        [self.notifyLabel setTextColor:[UIColor blackColor]];
+        [self.notifyLabel setText:self.notifyString];
     }
-    [self.notifyLabel setText:self.notifyString];
+    [self.activityIndicatior stopAnimating];
 }
 
 #pragma mark - customAccessoryView Delegate

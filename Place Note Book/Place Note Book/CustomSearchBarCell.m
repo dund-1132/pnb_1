@@ -42,6 +42,10 @@
                                              selector:@selector(onKeyboardHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(coverViewDidClicked:)
+                                                 name:@"TouchCoverView"
+                                               object:nil];
 }
 
 - (void)onKeyboardShow:(NSNotification *)notification {
@@ -53,19 +57,46 @@
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideNavigationBar"
-                                                        object:nil];
     [searchBar setShowsCancelButton:YES
                            animated:YES];
+    UIColor *statusColor = [UIColor colorWithRed:10/255.0
+                                           green:183/255.0
+                                            blue:128/255.0
+                                           alpha:1.0];
+    for (UIView *firstView in searchBar.subviews) {
+        for(UIView *view in firstView.subviews) {
+            if([view isKindOfClass:[UIButton class]]) {
+                UIButton *cancelButton = (UIButton *)view;
+                [cancelButton setEnabled:YES];
+                [cancelButton.titleLabel setTextColor:[UIColor whiteColor]];
+//                [cancelButton setTitleColor:[UIColor whiteColor]
+//                                   forState:UIControlStateNormal];
+            }
+        }
+    }
+    [searchBar setBarTintColor:statusColor];
+    searchBar.layer.borderWidth = 1.0;
+    searchBar.layer.borderColor = statusColor.CGColor;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HideNavigationBar"
+                                                        object:nil];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self endEdittingSearchBar:searchBar];
+}
+
+- (void)coverViewDidClicked:(NSNotification *)notification {
+    [self endEdittingSearchBar:self.searchBar];
+}
+
+- (void)endEdittingSearchBar:(UISearchBar *)searchBar {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowNavigationBar"
                                                         object:nil];
     if ([searchBar isFirstResponder]) {
         [searchBar endEditing:YES];
     }
-    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar setShowsCancelButton:NO
+                           animated:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

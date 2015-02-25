@@ -6,6 +6,7 @@
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="abouts" inverseEntity="Account" syncable="YES"/>
     </entity>
     <entity name="Account" representedClassName="Account" syncable="YES">
+        <attribute name="account_email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="account_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="account_note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="account_password" optional="YES" attributeType="String" syncable="YES"/>
@@ -87,15 +88,15 @@
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="synchronous" inverseEntity="Account" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Place" positionX="-63" positionY="-18" width="128" height="328"/>
-        <element name="Account" positionX="-63" positionY="81" width="128" height="268"/>
-        <element name="Schedule" positionX="-54" positionY="90" width="128" height="118"/>
-        <element name="Path" positionX="-36" positionY="99" width="128" height="118"/>
-        <element name="Share" positionX="-18" positionY="108" width="128" height="103"/>
+        <element name="About" positionX="0" positionY="99" width="128" height="88"/>
+        <element name="Account" positionX="-63" positionY="81" width="128" height="285"/>
         <element name="Assess" positionX="0" positionY="117" width="128" height="103"/>
         <element name="Know" positionX="18" positionY="126" width="128" height="88"/>
         <element name="Like" positionX="36" positionY="135" width="128" height="88"/>
+        <element name="Path" positionX="-36" positionY="99" width="128" height="118"/>
+        <element name="Place" positionX="-63" positionY="-18" width="128" height="328"/>
+        <element name="Schedule" positionX="-54" positionY="90" width="128" height="118"/>
+        <element name="Share" positionX="-18" positionY="108" width="128" height="103"/>
         <element name="Synchronous" positionX="-9" positionY="81" width="128" height="118"/>
-        <element name="About" positionX="0" positionY="99" width="128" height="88"/>
     </elements>
 </model>

@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" placeholder="Enter search text" translatesAutoresizingMaskIntoConstraints="NO" id="4U4-t2-SXi">
+                <searchBar contentMode="redraw" placeholder="Enter search text" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4U4-t2-SXi">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
@@ -25,7 +25,7 @@
             <connections>
                 <outlet property="searchBar" destination="4U4-t2-SXi" id="FcT-b2-2eP"/>
             </connections>
-            <point key="canvasLocation" x="300" y="501"/>
+            <point key="canvasLocation" x="375" y="589"/>
         </view>
     </objects>
 </document>
