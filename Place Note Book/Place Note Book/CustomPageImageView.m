@@ -68,8 +68,9 @@ static CustomPageImageView *staticCustomPageImageView;
 }
 
 - (void)addTargetForView:(UIView *)pageView {
-    UITapGestureRecognizer *tapPageView = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                  action:@selector(hidePageImageView)];
+    UITapGestureRecognizer *tapPageView =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(hidePageImageView)];
     tapPageView.numberOfTapsRequired = 1;
     [pageView addGestureRecognizer:tapPageView];
 }
@@ -82,20 +83,28 @@ static CustomPageImageView *staticCustomPageImageView;
     [self changeContentSizeScrollView];
 }
 
+// nen su dung doi tuong khac doi tuong scroll view
 - (void)changeContentSizeScrollView {
     CGRect screen = self.pageScrollView.frame;
     float width = screen.size.width;
     float height = screen.size.height;
     [self.pageScrollView setContentSize:CGSizeMake(width * PAGE_COUNT_TEMP, height)];
+//    [self.pageScrollView setBackgroundColor:[UIColor redColor]];
     for (int index = 0; index < PAGE_COUNT_TEMP; index++) {
         float originX = index * width;
-        CGRect imageViewRect = CGRectMake(originX, 0, width, height);
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewRect];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.center = CGPointMake(imageView.center.x, imageView.center.y - OFFSET);
-        [self.pageScrollView addSubview:imageView];
-        NSString *urlString = @"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTP0of4WBTP2Pxj_QVZr44gPdlSVLRk14qDPw8kHl5zwC2wr2x8";
-        [ImageDownload downloadImageFromURL:urlString andUpdateTo:imageView];
+        CGRect imageFrame = CGRectMake(originX, height / 2 - width / 2, width, width);
+        UIView *containView = [[UIView alloc] initWithFrame:imageFrame];
+        [self.pageScrollView addSubview:containView];
+//        CGPoint center = CGPointMake(originX + width / 2, self.pageScrollView.center.y);
+//        [containView setCenter:center];
+        [containView setBackgroundColor:[UIColor redColor]];
+//        CGRect imageViewRect = CGRectMake(originX, 0, width, height);
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewRect];
+//        imageView.contentMode = UIViewContentModeScaleAspectFit;
+//        imageView.center = CGPointMake(imageView.center.x, imageView.center.y - OFFSET);
+//        [self.pageScrollView addSubview:imageView];
+//        NSString *urlString = @"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTP0of4WBTP2Pxj_QVZr44gPdlSVLRk14qDPw8kHl5zwC2wr2x8";
+//        [ImageDownload downloadImageFromURL:urlString andUpdateTo:imageView];
     }
 }
 
@@ -111,7 +120,6 @@ static CustomPageImageView *staticCustomPageImageView;
     // switch the indicator when more than 50% of the previous/next page is visible
     CGFloat pageWidth = CGRectGetWidth(self.pageScrollView.frame);
     NSUInteger page = floor((self.pageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    
     [self.notifyLabel setText:[NSString stringWithFormat:@"Image %lu/%d", (unsigned long)page + 1, PAGE_COUNT_TEMP]];
 }
 

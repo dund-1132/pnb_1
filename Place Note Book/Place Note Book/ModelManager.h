@@ -36,9 +36,13 @@ typedef enum : NSUInteger {
 
 + (ModelManager *)shareModelManager;
 
+- (NSManagedObjectContext *)managedObjectContext;
+
 - (void)insertPlace:(NSDictionary *)placeInfo;
 
 - (void)insertAccount:(NSDictionary *)accountInfo;
+- (Account *)accountWithId:(NSString *)accountId;
+- (Account *)account:(NSString *)format;
 
 - (void)insertLike:(NSDictionary *)likeInfo;
 

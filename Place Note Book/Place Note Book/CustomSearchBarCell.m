@@ -66,14 +66,12 @@
     for (UIView *firstView in searchBar.subviews) {
         for(UIView *view in firstView.subviews) {
             if([view isKindOfClass:[UIButton class]]) {
-                UIButton *cancelButton = (UIButton *)view;
-                [cancelButton setEnabled:YES];
-                [cancelButton.titleLabel setTextColor:[UIColor whiteColor]];
-//                [cancelButton setTitleColor:[UIColor whiteColor]
-//                                   forState:UIControlStateNormal];
+                [(UIButton *)view setTitleColor:[UIColor whiteColor]
+                                       forState:UIControlStateNormal];
             }
         }
     }
+    
     [searchBar setBarTintColor:statusColor];
     searchBar.layer.borderWidth = 1.0;
     searchBar.layer.borderColor = statusColor.CGColor;
@@ -83,6 +81,13 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self endEdittingSearchBar:searchBar];
+    UIColor *defaultColor = [UIColor colorWithRed:201/255.0
+                                           green:201/255.0
+                                            blue:206/255.0
+                                           alpha:1.0];
+    [searchBar setBarTintColor:defaultColor];
+    searchBar.layer.borderWidth = 1.0;
+    searchBar.layer.borderColor = defaultColor.CGColor;
 }
 
 - (void)coverViewDidClicked:(NSNotification *)notification {

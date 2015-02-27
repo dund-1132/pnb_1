@@ -99,6 +99,36 @@ static ModelManager *staticModelManager;
     }
 }
 
+- (Account *)accountWithId:(NSString *)accountId {
+    NSError *error = nil;
+    NSFetchRequest *checkExist = [[NSFetchRequest alloc] init];
+    [checkExist setEntity:[NSEntityDescription entityForName:@"Account"
+                                      inManagedObjectContext:[self managedObjectContext]]];
+    [checkExist setFetchLimit:1];
+    [checkExist setPredicate:[NSPredicate predicateWithFormat:@"id == '%@'", accountId]];
+    NSArray *result = [[self managedObjectContext] executeFetchRequest:checkExist error:&error];
+    if ([result count] > 0) {
+        return (Account *)[result lastObject];
+    }
+    
+    return nil;
+}
+
+- (Account *)account:(NSString *)format {
+    NSError *error = nil;
+    NSFetchRequest *checkExist = [[NSFetchRequest alloc] init];
+    [checkExist setEntity:[NSEntityDescription entityForName:@"Account"
+                                      inManagedObjectContext:[self managedObjectContext]]];
+    [checkExist setFetchLimit:1];
+    [checkExist setPredicate:[NSPredicate predicateWithFormat:format]];
+    NSArray *result = [[self managedObjectContext] executeFetchRequest:checkExist error:&error];
+    if ([result count] > 0) {
+        return (Account *)[result lastObject];
+    }
+    
+    return nil;
+}
+
 - (void)insertLike:(NSDictionary *)likeInfo {
     Like *like =
     [NSEntityDescription insertNewObjectForEntityForName:@"Like"

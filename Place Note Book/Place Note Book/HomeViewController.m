@@ -95,12 +95,12 @@
         [self.statusView setBackgroundColor:statusColor];
     }
     [self.view addSubview:self.statusView];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self addCoverView];
 }
 
 - (void)showNavigationBar:(NSNotification *)notification {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     if (self.statusView) {
         [self.statusView removeFromSuperview];
     }

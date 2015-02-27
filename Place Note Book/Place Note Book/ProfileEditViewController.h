@@ -1,5 +1,5 @@
 //
-//  AdditionViewController.h
+//  ProfileEditViewController.h
 //  Place Note Book
 //
 //  Created by framgiavn on 2/27/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AdditionViewController : UITableViewController
+@interface ProfileEditViewController : UITableViewController
 
 @end

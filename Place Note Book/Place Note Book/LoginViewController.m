@@ -17,6 +17,7 @@
 #import "JSONDownload.h"
 #import "RequetsFormat.h"
 #import "ModelManager.h"
+#import "UserData.h"
 
 @interface LoginViewController () <CustomInputAccessoryViewDelegate>
 
@@ -185,13 +186,15 @@
 //    [[JSONDownload shareJSONDownload] sendRequestWithURL:url
 //                                           methodRequest:[[RequetsFormat shareRequestFormat] getMethod]];
     
-//    if (isValidate) {
-//        NSString *userName = [self.userNameTextField text];
-//        NSString *password = [self.passwordTextField text];
-//        NSString *predicate =
-//        [NSString stringWithFormat:ACCOUNT_FORMAT, userName, password];
-//        if ([[ModelManager shareModelManager] isExistRecordIn:TableAccount
-//                                           andPredicateFormat:predicate]) {
+    if (isValidate) {
+        NSString *userName = [self.userNameTextField text];
+        NSString *password = [self.passwordTextField text];
+        NSString *predicate =
+        [NSString stringWithFormat:ACCOUNT_FORMAT, userName, password];
+        if ([[ModelManager shareModelManager] isExistRecordIn:TableAccount
+                                           andPredicateFormat:predicate]) {
+            Account *account = [[ModelManager shareModelManager] account:predicate];
+            [[UserData shareUserData] saveAccount:account];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
                                                                  bundle:[NSBundle mainBundle]];
             UITabBarController *placeTabBarController =
@@ -199,15 +202,15 @@
             [self.navigationController presentViewController:placeTabBarController
                                                     animated:YES
                                                   completion:nil];
-//        } else {
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error, account not exist"
-//                                                                message:@"Please check account"
-//                                                               delegate:self
-//                                                      cancelButtonTitle:nil
-//                                                      otherButtonTitles:@"OK", nil];
-//            [alertView show];
-//        }
-//    }
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error, account not exist"
+                                                                message:@"Please check account"
+                                                               delegate:self
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+            [alertView show];
+        }
+    }
 }
 
 #pragma mark - customAccessoryView Delegate

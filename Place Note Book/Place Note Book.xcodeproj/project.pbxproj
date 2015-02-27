@@ -28,7 +28,6 @@
 		F404E7961A83605F00C79F55 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7951A83605F00C79F55 /* ScheduleViewController.m */; };
 		F404E7991A83607800C79F55 /* PlaceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E7981A83607800C79F55 /* PlaceListViewController.m */; };
 		F404E79C1A83609900C79F55 /* AdvanceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */; };
-		F404E79F1A8360AC00C79F55 /* AdditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F404E79E1A8360AC00C79F55 /* AdditionViewController.m */; };
 		F40F9A6C1A885DF700E15761 /* CustomPlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F40F9A6A1A885DF700E15761 /* CustomPlaceCell.m */; };
 		F40F9A6D1A885DF700E15761 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40F9A6B1A885DF700E15761 /* PlaceCell.xib */; };
 		F40F9A701A885E6F00E15761 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40F9A6F1A885E6F00E15761 /* PlaceDetailViewController.m */; };
@@ -46,6 +45,31 @@
 		F4258B281A8AF84700858216 /* JSONDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = F4258B271A8AF84700858216 /* JSONDownload.m */; };
 		F4258B331A8B144100858216 /* dismiss.png in Resources */ = {isa = PBXBuildFile; fileRef = F4258B311A8B144100858216 /* dismiss.png */; };
 		F4258B341A8B144100858216 /* dismiss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4258B321A8B144100858216 /* dismiss@2x.png */; };
+		F428AD4D1AA0111D00BB98E5 /* AdditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F428AD4C1AA0111D00BB98E5 /* AdditionViewController.m */; };
+		F428AD501AA01BA600BB98E5 /* timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD4E1AA01BA600BB98E5 /* timeline.png */; };
+		F428AD511AA01BA600BB98E5 /* timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD4F1AA01BA600BB98E5 /* timeline@2x.png */; };
+		F428AD541AA01D9C00BB98E5 /* account-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD521AA01D9C00BB98E5 /* account-edit.png */; };
+		F428AD551AA01D9C00BB98E5 /* account-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD531AA01D9C00BB98E5 /* account-edit@2x.png */; };
+		F428AD581AA01E6300BB98E5 /* language.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD561AA01E6300BB98E5 /* language.png */; };
+		F428AD591AA01E6300BB98E5 /* language@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD571AA01E6300BB98E5 /* language@2x.png */; };
+		F428AD5C1AA01EEE00BB98E5 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD5A1AA01EEE00BB98E5 /* about.png */; };
+		F428AD5D1AA01EEE00BB98E5 /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD5B1AA01EEE00BB98E5 /* about@2x.png */; };
+		F428AD601AA0201B00BB98E5 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD5E1AA0201B00BB98E5 /* logout.png */; };
+		F428AD611AA0201B00BB98E5 /* logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD5F1AA0201B00BB98E5 /* logout@2x.png */; };
+		F428AD641AA0270D00BB98E5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F428AD631AA0270D00BB98E5 /* ProfileViewController.m */; };
+		F428AD671AA03F5900BB98E5 /* ProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F428AD661AA03F5900BB98E5 /* ProfileEditViewController.m */; };
+		F428AD6B1AA045F000BB98E5 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD691AA045F000BB98E5 /* edit.png */; };
+		F428AD6C1AA045F000BB98E5 /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD6A1AA045F000BB98E5 /* edit@2x.png */; };
+		F428AD6F1AA0469900BB98E5 /* bar-item-done.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD6D1AA0469900BB98E5 /* bar-item-done.png */; };
+		F428AD701AA0469900BB98E5 /* bar-item-done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD6E1AA0469900BB98E5 /* bar-item-done@2x.png */; };
+		F428AD731AA048A500BB98E5 /* add-account.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD711AA048A500BB98E5 /* add-account.png */; };
+		F428AD741AA048A500BB98E5 /* add-account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD721AA048A500BB98E5 /* add-account@2x.png */; };
+		F428AD7F1AA056F500BB98E5 /* change-password.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD7D1AA056F500BB98E5 /* change-password.png */; };
+		F428AD801AA056F500BB98E5 /* change-password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD7E1AA056F500BB98E5 /* change-password@2x.png */; };
+		F428AD831AA0592A00BB98E5 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD811AA0592A00BB98E5 /* delete.png */; };
+		F428AD841AA0592A00BB98E5 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F428AD821AA0592A00BB98E5 /* delete@2x.png */; };
+		F428AD871AA0636800BB98E5 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F428AD861AA0636800BB98E5 /* AboutViewController.m */; };
+		F428AD8A1AA0686000BB98E5 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = F428AD891AA0686000BB98E5 /* UserData.m */; };
 		F476DEEC1A7F752900B9501D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F476DEEB1A7F752900B9501D /* SignUpViewController.m */; };
 		F476DEEF1A7F753500B9501D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F476DEEE1A7F753500B9501D /* LoginViewController.m */; };
 		F476DEF21A7F754200B9501D /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F476DEF11A7F754200B9501D /* FacebookViewController.m */; };
@@ -145,8 +169,6 @@
 		F404E7981A83607800C79F55 /* PlaceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceListViewController.m; sourceTree = "<group>"; };
 		F404E79A1A83609900C79F55 /* AdvanceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvanceSearchViewController.h; sourceTree = "<group>"; };
 		F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvanceSearchViewController.m; sourceTree = "<group>"; };
-		F404E79D1A8360AC00C79F55 /* AdditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionViewController.h; sourceTree = "<group>"; };
-		F404E79E1A8360AC00C79F55 /* AdditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionViewController.m; sourceTree = "<group>"; };
 		F40F9A691A885DF700E15761 /* CustomPlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPlaceCell.h; sourceTree = "<group>"; };
 		F40F9A6A1A885DF700E15761 /* CustomPlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPlaceCell.m; sourceTree = "<group>"; };
 		F40F9A6B1A885DF700E15761 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
@@ -170,6 +192,36 @@
 		F4258B271A8AF84700858216 /* JSONDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDownload.m; sourceTree = "<group>"; };
 		F4258B311A8B144100858216 /* dismiss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dismiss.png; sourceTree = "<group>"; };
 		F4258B321A8B144100858216 /* dismiss@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss@2x.png"; sourceTree = "<group>"; };
+		F428AD4B1AA0111D00BB98E5 /* AdditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionViewController.h; sourceTree = "<group>"; };
+		F428AD4C1AA0111D00BB98E5 /* AdditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionViewController.m; sourceTree = "<group>"; };
+		F428AD4E1AA01BA600BB98E5 /* timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline.png; sourceTree = "<group>"; };
+		F428AD4F1AA01BA600BB98E5 /* timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline@2x.png"; sourceTree = "<group>"; };
+		F428AD521AA01D9C00BB98E5 /* account-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account-edit.png"; sourceTree = "<group>"; };
+		F428AD531AA01D9C00BB98E5 /* account-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account-edit@2x.png"; sourceTree = "<group>"; };
+		F428AD561AA01E6300BB98E5 /* language.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language.png; sourceTree = "<group>"; };
+		F428AD571AA01E6300BB98E5 /* language@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "language@2x.png"; sourceTree = "<group>"; };
+		F428AD5A1AA01EEE00BB98E5 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
+		F428AD5B1AA01EEE00BB98E5 /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
+		F428AD5E1AA0201B00BB98E5 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		F428AD5F1AA0201B00BB98E5 /* logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout@2x.png"; sourceTree = "<group>"; };
+		F428AD621AA0270D00BB98E5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		F428AD631AA0270D00BB98E5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		F428AD651AA03F5900BB98E5 /* ProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditViewController.h; sourceTree = "<group>"; };
+		F428AD661AA03F5900BB98E5 /* ProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditViewController.m; sourceTree = "<group>"; };
+		F428AD691AA045F000BB98E5 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		F428AD6A1AA045F000BB98E5 /* edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit@2x.png"; sourceTree = "<group>"; };
+		F428AD6D1AA0469900BB98E5 /* bar-item-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-item-done.png"; sourceTree = "<group>"; };
+		F428AD6E1AA0469900BB98E5 /* bar-item-done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-item-done@2x.png"; sourceTree = "<group>"; };
+		F428AD711AA048A500BB98E5 /* add-account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account.png"; sourceTree = "<group>"; };
+		F428AD721AA048A500BB98E5 /* add-account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account@2x.png"; sourceTree = "<group>"; };
+		F428AD7D1AA056F500BB98E5 /* change-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "change-password.png"; sourceTree = "<group>"; };
+		F428AD7E1AA056F500BB98E5 /* change-password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "change-password@2x.png"; sourceTree = "<group>"; };
+		F428AD811AA0592A00BB98E5 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		F428AD821AA0592A00BB98E5 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
+		F428AD851AA0636800BB98E5 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		F428AD861AA0636800BB98E5 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		F428AD881AA0686000BB98E5 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		F428AD891AA0686000BB98E5 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		F476DEEA1A7F752900B9501D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		F476DEEB1A7F752900B9501D /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		F476DEED1A7F753500B9501D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -282,6 +334,8 @@
 			children = (
 				F400E19A1A89B5AE00DFB51C /* ImageDownload.h */,
 				F400E19B1A89B5AE00DFB51C /* ImageDownload.m */,
+				F428AD881AA0686000BB98E5 /* UserData.h */,
+				F428AD891AA0686000BB98E5 /* UserData.m */,
 				F4036E431A8C88230079FB7A /* model */,
 			);
 			name = data;
@@ -297,6 +351,19 @@
 				F4A024A71A846689005B701F /* searchbar */,
 			);
 			name = custom;
+			sourceTree = "<group>";
+		};
+		F428AD681AA03F5C00BB98E5 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				F428AD621AA0270D00BB98E5 /* ProfileViewController.h */,
+				F428AD631AA0270D00BB98E5 /* ProfileViewController.m */,
+				F428AD651AA03F5900BB98E5 /* ProfileEditViewController.h */,
+				F428AD661AA03F5900BB98E5 /* ProfileEditViewController.m */,
+				F428AD851AA0636800BB98E5 /* AboutViewController.h */,
+				F428AD861AA0636800BB98E5 /* AboutViewController.m */,
+			);
+			name = profile;
 			sourceTree = "<group>";
 		};
 		F43038D71A807C3C00302D62 /* network */ = {
@@ -337,8 +404,9 @@
 				F40F9A6F1A885E6F00E15761 /* PlaceDetailViewController.m */,
 				F404E79A1A83609900C79F55 /* AdvanceSearchViewController.h */,
 				F404E79B1A83609900C79F55 /* AdvanceSearchViewController.m */,
-				F404E79D1A8360AC00C79F55 /* AdditionViewController.h */,
-				F404E79E1A8360AC00C79F55 /* AdditionViewController.m */,
+				F428AD4B1AA0111D00BB98E5 /* AdditionViewController.h */,
+				F428AD4C1AA0111D00BB98E5 /* AdditionViewController.m */,
+				F428AD681AA03F5C00BB98E5 /* profile */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -386,6 +454,26 @@
 		F4A024AA1A84B722005B701F /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				F428AD811AA0592A00BB98E5 /* delete.png */,
+				F428AD821AA0592A00BB98E5 /* delete@2x.png */,
+				F428AD7D1AA056F500BB98E5 /* change-password.png */,
+				F428AD7E1AA056F500BB98E5 /* change-password@2x.png */,
+				F428AD711AA048A500BB98E5 /* add-account.png */,
+				F428AD721AA048A500BB98E5 /* add-account@2x.png */,
+				F428AD6D1AA0469900BB98E5 /* bar-item-done.png */,
+				F428AD6E1AA0469900BB98E5 /* bar-item-done@2x.png */,
+				F428AD691AA045F000BB98E5 /* edit.png */,
+				F428AD6A1AA045F000BB98E5 /* edit@2x.png */,
+				F428AD5E1AA0201B00BB98E5 /* logout.png */,
+				F428AD5F1AA0201B00BB98E5 /* logout@2x.png */,
+				F428AD5A1AA01EEE00BB98E5 /* about.png */,
+				F428AD5B1AA01EEE00BB98E5 /* about@2x.png */,
+				F428AD561AA01E6300BB98E5 /* language.png */,
+				F428AD571AA01E6300BB98E5 /* language@2x.png */,
+				F428AD521AA01D9C00BB98E5 /* account-edit.png */,
+				F428AD531AA01D9C00BB98E5 /* account-edit@2x.png */,
+				F428AD4E1AA01BA600BB98E5 /* timeline.png */,
+				F428AD4F1AA01BA600BB98E5 /* timeline@2x.png */,
 				F41593C01A9EF59E00CCEBEF /* invalid.png */,
 				F41593C11A9EF59E00CCEBEF /* invalid@2x.png */,
 				F41593C21A9EF59E00CCEBEF /* valid.png */,
@@ -577,6 +665,7 @@
 			files = (
 				F4B134161A7F623500132D3A /* Main.storyboard in Resources */,
 				F48FC2141A88B84D00F5DF2A /* CustomPlaceMapCell.xib in Resources */,
+				F428AD841AA0592A00BB98E5 /* delete@2x.png in Resources */,
 				F48FC2161A88B85B00F5DF2A /* CustomPlaceCommentCell.xib in Resources */,
 				F48FC20B1A88B47300F5DF2A /* CustomPlaceInformationCell.xib in Resources */,
 				F4A024AD1A84B796005B701F /* place.png in Resources */,
@@ -586,21 +675,29 @@
 				F4A024B11A84C440005B701F /* star.png in Resources */,
 				F499913F1A9DB3F500DDF827 /* option@2x.png in Resources */,
 				F499911D1A9D567E00DDF827 /* done@2x.png in Resources */,
+				F428AD581AA01E6300BB98E5 /* language.png in Resources */,
+				F428AD6C1AA045F000BB98E5 /* edit@2x.png in Resources */,
 				F40F9A6D1A885DF700E15761 /* PlaceCell.xib in Resources */,
 				F49991241A9D567E00DDF827 /* signin.png in Resources */,
 				F49991261A9D567E00DDF827 /* signup.png in Resources */,
+				F428AD551AA01D9C00BB98E5 /* account-edit@2x.png in Resources */,
+				F428AD511AA01BA600BB98E5 /* timeline@2x.png in Resources */,
+				F428AD831AA0592A00BB98E5 /* delete.png in Resources */,
 				F49991531A9DB6DE00DDF827 /* list@2x.png in Resources */,
 				F499913A1A9DB39E00DDF827 /* home.png in Resources */,
 				F411B5321A8DE6F20062BDDE /* icon-launch.png in Resources */,
+				F428AD731AA048A500BB98E5 /* add-account.png in Resources */,
 				F499913E1A9DB3F500DDF827 /* option.png in Resources */,
 				F499912A1A9D621600DDF827 /* facebook.png in Resources */,
 				F499911F1A9D567E00DDF827 /* framgia@2x.png in Resources */,
 				F4B1341B1A7F623500132D3A /* LaunchScreen.xib in Resources */,
+				F428AD7F1AA056F500BB98E5 /* change-password.png in Resources */,
 				F499913B1A9DB39E00DDF827 /* home@2x.png in Resources */,
 				F41593C71A9EF59E00CCEBEF /* valid@2x.png in Resources */,
 				F41593C51A9EF59E00CCEBEF /* invalid@2x.png in Resources */,
 				F48FC2101A88B6B500F5DF2A /* CustomPlaceCollectionCell.xib in Resources */,
 				F4B134181A7F623500132D3A /* Images.xcassets in Resources */,
+				F428AD501AA01BA600BB98E5 /* timeline.png in Resources */,
 				F4258B331A8B144100858216 /* dismiss.png in Resources */,
 				F48FC2121A88B83A00F5DF2A /* CustomPlaceDescriptionCell.xib in Resources */,
 				F49991231A9D567E00DDF827 /* previous@2x.png in Resources */,
@@ -610,19 +707,30 @@
 				F499911C1A9D567E00DDF827 /* done.png in Resources */,
 				F4036E201A8C3D930079FB7A /* account.png in Resources */,
 				F4258B341A8B144100858216 /* dismiss@2x.png in Resources */,
+				F428AD6F1AA0469900BB98E5 /* bar-item-done.png in Resources */,
+				F428AD6B1AA045F000BB98E5 /* edit.png in Resources */,
 				F4036E211A8C3D930079FB7A /* account@2x.png in Resources */,
+				F428AD5D1AA01EEE00BB98E5 /* about@2x.png in Resources */,
 				F49991521A9DB6DE00DDF827 /* list.png in Resources */,
+				F428AD541AA01D9C00BB98E5 /* account-edit.png in Resources */,
 				F499914F1A9DB62700DDF827 /* search@2x.png in Resources */,
 				F41B24401A82107600068E92 /* CustomInputAccessoryView.xib in Resources */,
+				F428AD611AA0201B00BB98E5 /* logout@2x.png in Resources */,
 				F4A024AE1A84B796005B701F /* place@2x.png in Resources */,
 				F4A024A51A8462C4005B701F /* SearchBarCell.xib in Resources */,
+				F428AD601AA0201B00BB98E5 /* logout.png in Resources */,
 				F499911B1A9D567E00DDF827 /* background-blur.png in Resources */,
+				F428AD5C1AA01EEE00BB98E5 /* about.png in Resources */,
 				F49991461A9DB52A00DDF827 /* schedule.png in Resources */,
 				F49991471A9DB52A00DDF827 /* schedule@2x.png in Resources */,
+				F428AD741AA048A500BB98E5 /* add-account@2x.png in Resources */,
 				F411B5331A8DE6F20062BDDE /* icon-launch@2x.png in Resources */,
 				F49991201A9D567E00DDF827 /* next.png in Resources */,
 				F49991221A9D567E00DDF827 /* previous.png in Resources */,
+				F428AD701AA0469900BB98E5 /* bar-item-done@2x.png in Resources */,
 				F499911E1A9D567E00DDF827 /* framgia.png in Resources */,
+				F428AD801AA056F500BB98E5 /* change-password@2x.png in Resources */,
+				F428AD591AA01E6300BB98E5 /* language@2x.png in Resources */,
 				F49991271A9D567E00DDF827 /* signup@2x.png in Resources */,
 				F499912B1A9D621600DDF827 /* facebook@2x.png in Resources */,
 				F499914E1A9DB62700DDF827 /* search.png in Resources */,
@@ -649,6 +757,7 @@
 				F4B1340D1A7F623500132D3A /* AppDelegate.m in Sources */,
 				F476DEEC1A7F752900B9501D /* SignUpViewController.m in Sources */,
 				F48FC20E1A88B49B00F5DF2A /* CustomPlaceDetailCell.m in Sources */,
+				F428AD671AA03F5900BB98E5 /* ProfileEditViewController.m in Sources */,
 				F400E19C1A89B5AE00DFB51C /* ImageDownload.m in Sources */,
 				F4036E391A8C864D0079FB7A /* Path.m in Sources */,
 				F4036E271A8C864B0079FB7A /* Place.m in Sources */,
@@ -660,6 +769,7 @@
 				F4036E3C1A8C864D0079FB7A /* Assess.m in Sources */,
 				F4036E241A8C48600079FB7A /* RequetsFormat.m in Sources */,
 				F476DEEF1A7F753500B9501D /* LoginViewController.m in Sources */,
+				F428AD871AA0636800BB98E5 /* AboutViewController.m in Sources */,
 				F4036E2D1A8C864C0079FB7A /* Synchronous.m in Sources */,
 				F404E7961A83605F00C79F55 /* ScheduleViewController.m in Sources */,
 				F40F9A701A885E6F00E15761 /* PlaceDetailViewController.m in Sources */,
@@ -667,13 +777,15 @@
 				F4036E421A8C864D0079FB7A /* Like.m in Sources */,
 				F4B134101A7F623500132D3A /* Place_Note_Book.xcdatamodeld in Sources */,
 				F4036E461A8C88CF0079FB7A /* ModelManager.m in Sources */,
+				F428AD8A1AA0686000BB98E5 /* UserData.m in Sources */,
 				F4036E3F1A8C864D0079FB7A /* Know.m in Sources */,
-				F404E79F1A8360AC00C79F55 /* AdditionViewController.m in Sources */,
 				F4B134131A7F623500132D3A /* IntroductionController.m in Sources */,
+				F428AD641AA0270D00BB98E5 /* ProfileViewController.m in Sources */,
 				F4B1340A1A7F623500132D3A /* main.m in Sources */,
 				F40F9A6C1A885DF700E15761 /* CustomPlaceCell.m in Sources */,
 				F404E7901A835CE600C79F55 /* CustomSearchBarCell.m in Sources */,
 				F4036E2A1A8C864C0079FB7A /* Schedule.m in Sources */,
+				F428AD4D1AA0111D00BB98E5 /* AdditionViewController.m in Sources */,
 				F404E7991A83607800C79F55 /* PlaceListViewController.m in Sources */,
 				F404E7831A82F64500C79F55 /* ValidateTextField.m in Sources */,
 			);

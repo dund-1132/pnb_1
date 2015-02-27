@@ -48,7 +48,7 @@
                 <outlet property="notifyLabel" destination="bzf-rb-xUt" id="GNc-HL-PWH"/>
                 <outlet property="pageScrollView" destination="nc1-IY-phE" id="h9q-4d-42e"/>
             </connections>
-            <point key="canvasLocation" x="802" y="533"/>
+            <point key="canvasLocation" x="863" y="543"/>
         </view>
     </objects>
 </document>
