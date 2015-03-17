@@ -11,7 +11,8 @@
 typedef enum ValidateType {
     ValidateUserName,
     ValidateEmail,
-    ValidatePassword
+    ValidatePassword,
+    ValidateName
 } ValidateState;
 
 @interface ValidateTextField : UITextField <UITextFieldDelegate>
@@ -19,5 +20,18 @@ typedef enum ValidateType {
 - (void)setRegularExpression:(ValidateState)validateType;
 
 - (BOOL)isValidate;
+
++ (UIView *)roundCornersOnView:(UIView *)view
+                     onTopLeft:(BOOL)tl
+                      topRight:(BOOL)tr
+                    bottomLeft:(BOOL)bl
+                   bottomRight:(BOOL)br
+                        radius:(float)radius;
+
++ (UIView *)borderColor:(UIView *)view color:(UIColor *)color width:(float)width;
+
++ (UIView *)roundOnView:(UIView *)view radius:(float)radius;
+
+- (void)clearBorder;
 
 @end

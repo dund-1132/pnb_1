@@ -2,12 +2,15 @@
 //  PlaceDetailViewController.h
 //  Place Note Book
 //
-//  Created by framgiavn on 2/9/15.
-//  Copyright (c) 2015 framgiavn. All rights reserved.
+//  Created by Ngo Dac Du on 3/10/15.
+//  Copyright (c) 2015 ngodacdu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface PlaceDetailViewController : UIViewController
+@interface PlaceDetailViewController : UITableViewController
+
+@property (nonatomic, strong) PFObject *object;
 
 @end

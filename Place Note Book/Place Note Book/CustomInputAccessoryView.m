@@ -14,31 +14,40 @@
 
 + (CustomInputAccessoryView *)instanceFromNibFile {
     CustomInputAccessoryView *customInputAccessoryView =
-    (CustomInputAccessoryView *)[[[NSBundle mainBundle] loadNibNamed:@"CustomInputAccessoryView" owner:self options:nil] firstObject];
+    (CustomInputAccessoryView *)[[[NSBundle mainBundle] loadNibNamed:@"CustomInputAccessoryView"
+                                                               owner:self
+                                                             options:nil] firstObject];
     
     return customInputAccessoryView;
 }
 
 - (IBAction)clickPreviousButton:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(inputAccessoryViewPreviousButtonDidClick)]) {
+    SEL selector = @selector(inputAccessoryViewPreviousButtonDidClick);
+    if ([self.delegate respondsToSelector:selector]) {
         [self.delegate inputAccessoryViewPreviousButtonDidClick];
     }
 }
 
 - (IBAction)clickNextButton:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(inputAccessoryViewNextButtonDidClick)]) {
+    SEL selector = @selector(inputAccessoryViewNextButtonDidClick);
+    if ([self.delegate respondsToSelector:selector]) {
         [self.delegate inputAccessoryViewNextButtonDidClick];
     }
 }
 
 - (IBAction)clickDoneButton:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(inputAccessoryViewDoneButtonDidClick)]) {
+    SEL selector = @selector(inputAccessoryViewDoneButtonDidClick);
+    if ([self.delegate respondsToSelector:selector]) {
         [self.delegate inputAccessoryViewDoneButtonDidClick];
     }
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+}
+
+- (float)inputAccessoryHeight {
+    return self.frame.size.height;
 }
 
 @end
